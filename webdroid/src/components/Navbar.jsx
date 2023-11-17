@@ -13,7 +13,7 @@ const Navbar = () => {
                 navLinks.slice(4, 6).map((nav, index) => (
                     <li
                         key={nav.id}
-                        className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ${index === navLinks.length - 1 ? 'mb-0' : 'mb-6'}`}
+                        className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ${index === navLinks.length - 1 ? 'mb-0' : 'mb-6'}`}
                     >
                         <a href={`#${nav.id}`}>
                             {nav.title}
@@ -26,7 +26,7 @@ const Navbar = () => {
                 navLinks.slice(-2).map((nav, index) => (
                     <li
                         key={nav.id}
-                        className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ${index === navLinks.length - 1 ? 'mb-0' : 'mb-6'}`}
+                        className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ${index === navLinks.length - 1 ? 'mb-0' : 'mb-6'}`}
                     >
                         <a href={`#${nav.id}`} className="capitalize">
                             {nav.id}
@@ -43,7 +43,7 @@ const Navbar = () => {
             return (
                 <li
                     key={nav.id}
-                    className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ml-[65px]`}
+                    className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ml-[65px]`}
                 >
                     <a href={`#${nav.id}`}>
                         {nav.title}
@@ -54,7 +54,7 @@ const Navbar = () => {
             return (
                 <li
                     key={nav.id}
-                    className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ml-[65px]`}
+                    className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ml-[65px]`}
                 >
                     <a href={`#${nav.id}`}>
                         {nav.title}
@@ -65,7 +65,7 @@ const Navbar = () => {
             return (
                 <li
                     key={nav.id}
-                    className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ml-[65px]`}
+                    className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ml-[65px]`}
                 >
                     <a href={`#${nav.id}`}>
                         <img src={nav.title} alt={nav.id} className="w-[100%] h-[100%]" />
@@ -81,7 +81,7 @@ const Navbar = () => {
                 {navLinks.slice(0, 3).map((nav) => (
                     <li
                         key={nav.id}
-                        className={`font-poppins font-semibold cursor-pointer text-black text-[20px] mr-[65px]`}
+                        className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] mr-[65px]`}
                     >
                         <a href={`#${nav.id}`}>
                             {nav.title}
@@ -108,12 +108,12 @@ const Navbar = () => {
                     onClick={() => settoggle((prev) => !prev)}
                 />
 
-                <div className={`${toggle ? 'flex' : 'hidden'} p-5 bg-[#9EDDFF] absolute top-20 right-0 mx-4 my-1 min-w-[140px] rounded-xl sidebar`}>
+                <div className={`${toggle ? 'flex' : 'hidden'} p-5 bg-[#d3e3ff] absolute top-24 right-0 mx-4 my-1 min-w-[140px] rounded-xl sidebar`}>
                     <ul className="list-none flex flex-col justify-end items-center flex-1">
                         {navLinks.slice(0, 4).map((nav) => (
                             <li
                                 key={nav.id}
-                                className={`font-poppins font-semibold cursor-pointer text-black text-[20px] mb-6`}
+                                className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] mb-6`}
                             >
                                 <a href={`#${nav.id}`}>
                                     {nav.title}
