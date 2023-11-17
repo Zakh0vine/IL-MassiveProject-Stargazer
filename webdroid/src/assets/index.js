@@ -12,16 +12,4 @@ import facebook from "./facebook.svg";
 import twitter from "./twitter.svg";
 import instagram from "./instagram.svg";
 
-<<<<<<< HEAD
-export { logo, medication, close, menu, medis, videoshowcase, playstore, application, facebook, twitter, instagram };
-=======
-export {
-    logo,
-    medication,
-    close,
-    menu,
-    medis,
-    notif,
-    profile,
-}
->>>>>>> bf9db288bd2fabd4bdd04b72eab588b99492a22a
+export { logo, medication, close, menu, medis, videoshowcase, playstore, application, facebook, twitter, instagram, notif, profile };

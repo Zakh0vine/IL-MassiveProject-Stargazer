@@ -14,7 +14,7 @@ const Hero = () => {
                 <Button link="#" text="Jelajahi Lebih Lanjut" />
             </div>
 
-            <div className='flex-1 md:flex hidden justify-end items-center relative my-0'>
+            <div className='flex-1 md:flex hidden items-center relative my-0'>
                 <img src={medication} alt="medisPicture" className='w-[85%] h-[85%] relative z-[5]' />
             </div>
 
