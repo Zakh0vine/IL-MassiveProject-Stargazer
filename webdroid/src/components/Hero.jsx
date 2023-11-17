@@ -15,7 +15,7 @@ const Hero = () => {
             </div>
 
             <div className='flex-1 md:flex hidden justify-end items-center relative my-0'>
-                <img src={medication} alt="medisPicture" className='w-[85%] h-[85%] relative' />
+                <img src={medication} alt="medisPicture" className='w-[85%] h-[85%] relative z-[5]' />
             </div>
 
         </section>

@@ -1,10 +1,79 @@
-import { logo, menu, close } from "../assets";
+import { logo, menu, close, notif, profile } from "../assets";
 import { navLinks } from "../constants";
 
 import { useState } from "react";
 
 const Navbar = () => {
     const [toggle, settoggle] = useState(false);
+    const [login, setlogin] = useState(false);
+
+    function SideMenu() {
+        if (!login) {
+            return (
+                navLinks.slice(4, 6).map((nav, index) => (
+                    <li
+                        key={nav.id}
+                        className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ${index === navLinks.length - 1 ? 'mb-0' : 'mb-6'}`}
+                    >
+                        <a href={`#${nav.id}`}>
+                            {nav.title}
+                        </a>
+                    </li>
+                ))
+            )
+        } else if (login) {
+            return (
+                navLinks.slice(-2).map((nav, index) => (
+                    <li
+                        key={nav.id}
+                        className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ${index === navLinks.length - 1 ? 'mb-0' : 'mb-6'}`}
+                    >
+                        <a href={`#${nav.id}`} className="capitalize">
+                            {nav.id}
+                        </a>
+                    </li>
+                ))
+            )
+        }
+        return null;
+    }
+
+    function HomeMenu({ nav, index }) {
+        if (index === 0) {
+            return (
+                <li
+                    key={nav.id}
+                    className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ml-[65px]`}
+                >
+                    <a href={`#${nav.id}`}>
+                        {nav.title}
+                    </a>
+                </li>
+            )
+        } else if (!login && index >= 1 && index <= 2) {
+            return (
+                <li
+                    key={nav.id}
+                    className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ml-[65px]`}
+                >
+                    <a href={`#${nav.id}`}>
+                        {nav.title}
+                    </a>
+                </li>
+            )
+        } else if (login && index >= 3 && index <= 4) {
+            return (
+                <li
+                    key={nav.id}
+                    className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ml-[65px]`}
+                >
+                    <a href={`#${nav.id}`}>
+                        <img src={nav.title} alt={nav.id} className="w-[100%] h-[100%]" />
+                    </a>
+                </li>
+            )
+        }
+    }
 
     return (
         <nav className="w-full flex py-3 items-center navbar flex-1 justify-between">
@@ -21,19 +90,14 @@ const Navbar = () => {
                 ))}
             </ul>
 
-            <img src={logo} alt="logo" className="w-[80px] h-[55px] cursor-pointer" />
+            <img src={logo} alt="logo" className="w-[80px] h-[55px] cursor-pointer" onClick={() => setlogin((prev) => !prev)} />
 
             <ul className="list-none lg:flex hidden justify-end items-center flex-1">
-                {navLinks.slice(3, 6).map((nav) => (
-                    <li
-                        key={nav.id}
-                        className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ml-[65px]`}
-                    >
-                        <a href={`#${nav.id}`}>
-                            {nav.title}
-                        </a>
-                    </li>
-                ))}
+                {
+                    navLinks.slice(3, 8).map((nav, index) => (
+                        <HomeMenu nav={nav} index={index} />
+                    ))
+                }
             </ul>
 
             <div className="lg:hidden flex flex-1 justify-end items-center">
@@ -46,16 +110,17 @@ const Navbar = () => {
 
                 <div className={`${toggle ? 'flex' : 'hidden'} p-5 bg-[#9EDDFF] absolute top-20 right-0 mx-4 my-1 min-w-[140px] rounded-xl sidebar`}>
                     <ul className="list-none flex flex-col justify-end items-center flex-1">
-                        {navLinks.map((nav, index) => (
+                        {navLinks.slice(0, 4).map((nav) => (
                             <li
                                 key={nav.id}
-                                className={`font-poppins font-semibold cursor-pointer text-black text-[20px] ${index === navLinks.length - 1 ? 'mb-0' : 'mb-6'}`}
+                                className={`font-poppins font-semibold cursor-pointer text-black text-[20px] mb-6`}
                             >
                                 <a href={`#${nav.id}`}>
                                     {nav.title}
                                 </a>
                             </li>
                         ))}
+                        <SideMenu />
                     </ul>
                 </div>
             </div>

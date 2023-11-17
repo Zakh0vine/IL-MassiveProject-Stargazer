@@ -1,4 +1,4 @@
-
+import { notif, profile } from "../assets";
 
 export const navLinks = [
     {
@@ -24,5 +24,13 @@ export const navLinks = [
     {
         id: "daftar",
         title: "Daftar",
+    },
+    {
+        id: "notifikasi",
+        title: notif,
+    },
+    {
+        id: "profile",
+        title: profile,
     },
 ];
