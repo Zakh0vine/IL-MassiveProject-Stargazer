@@ -1,4 +1,4 @@
-import { Hero, Navbar, Demo, Download, About, Card } from "../components";
+import { Hero, NavHome, Demo, Download, About, Card } from "../components";
 
 const Home = () => (
     <div className="w-full overflow-hidden bg-white">
@@ -8,36 +8,36 @@ const Home = () => (
                 <NavHome />
             </div>
         </div>
-        {/* ? */}
-        <div className="w-full md:px-[120px] px-7 bg-white mt-[85px]">
+        {/* Hero */}
+        <section className="w-full md:px-[120px] px-7 bg-white pt-[85px]" id="hero">
             <div className="w-full">
                 <Hero />
             </div>
-        </div>
+        </section>
         {/* Fitur */}
-        <div className="w-full md:px-[120px] px-7 custom-gradient bg-blue-500  mt-[85px]">
-            <div className="w-full">
+        <section className="w-full md:px-[120px] px-7 custom-gradient bg-blue-500 py-[30px]" id="fitur">
+            <div className="w-full flex justify-center">
                 <Card />
             </div>
-        </div>
+        </section>
         {/* Video */}
-        <div className="w-full h-auto md:px-[120px] px-7 bg-white mt-[85px]">
+        <section className="w-full h-auto md:px-[120px] px-7 bg-white py-[110px]" id="demo">
             <div className="w-full">
                 <Demo />
             </div>
-        </div>
-        {/* Abot */}
-        <div className="w-full md:px-[120px] px-7 custom-gradient bg-blue-500 ">
+        </section>
+        {/* About */}
+        <section className="w-full md:px-[120px] px-7 custom-gradient bg-blue-500 pb-[100px]" id="tentang">
             <div className="w-full">
                 <About />
             </div>
-        </div>
+        </section>
         {/* Promo */}
-        <div className="w-full h-auto md:px-[120px] px-7 bg-white mt-[85px]">
+        <section className="w-full h-auto md:px-[120px] px-7 bg-white py-[85px]" id="download">
             <div className="w-full">
                 <Download />
             </div>
-        </div>
+        </section>
     </div>
 );
 

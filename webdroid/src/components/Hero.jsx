@@ -3,7 +3,7 @@ import { medication } from '../assets';
 
 const Hero = () => {
     return (
-        <section className='flex md:py-16 py-10 md:flex-row flex-col'>
+        <div className='flex md:py-16 py-10 md:flex-row flex-col'>
 
             <div className='flex-1 flex-col flex justify-center md:items-start items-center md:text-start text-center'>
                 <h3 className='font-poppins font-bold text-[50px] mb-10'>Solusi Stok Obat Terbaik Untuk Apotekmu!</h3>
@@ -18,7 +18,7 @@ const Hero = () => {
                 <img src={medication} alt="medisPicture" className='w-[85%] h-[85%] relative z-[5]' />
             </div>
 
-        </section>
+        </div>
     )
 }
 

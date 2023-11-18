@@ -7,7 +7,7 @@ import '../index.css'
 function About() {
   return (
     < >
-      <section className=''>
+      <div className=''>
         <div className='flex md:py-20 py-10 md:px-25 px-10 m-10 md:flex-row flex-col'>
           {/* Header About */}
           <div>
@@ -53,7 +53,7 @@ function About() {
           </div>
         </div>
 
-      </section>
+      </div>
 
     </>
   )

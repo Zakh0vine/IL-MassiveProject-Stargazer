@@ -13,7 +13,7 @@ export default function Card() {
           <div className="bg-white p-9 h-full rounded-xl shadow-md md:items-start md:text-start ">
             <div className='flex justify-center items-center w-full h-full'>
               <h3 className="text-[50px] font-bold">
-                Fitur<span className="text-blue-400 mx-2"> Spesial </span> <br/>Untuk Anda
+                Fitur<span className="text-blue-400 mx-2"> Spesial </span> <br />Untuk Anda
               </h3>
               <img src={Star} alt="Deskripsi gambar bintang burik" className='w-[200px] h-auto object-contain' />
             </div>
@@ -61,6 +61,7 @@ export default function Card() {
           </div>
         </div>
       </div>
+
     </>
   );
 }
