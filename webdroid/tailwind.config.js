@@ -9,6 +9,11 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      backgroundGradient: {
+        '0': 'var(--gradient)',
+        '50': 'var(--gradient)',
+        '100': 'var(--gradient)',
+      },
     },
   },
   plugins: [],
