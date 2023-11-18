@@ -12,4 +12,14 @@ import facebook from "./facebook.svg";
 import twitter from "./twitter.svg";
 import instagram from "./instagram.svg";
 
-export { logo, medication, close, menu, medis, videoshowcase, playstore, application, facebook, twitter, instagram, notif, profile };
+
+// S bar
+import Dashboard from "./ico/Dashboard.svg";
+import Laporan from "./ico/Laporan.svg";
+import Logout from "./ico/Logout.svg";
+import Notifications from "./ico/Notifications.svg";
+import Profile2 from "./ico/Profile.svg";
+
+
+
+export { logo, medication, close, menu, medis, videoshowcase, playstore, application, facebook, twitter, instagram, notif, profile, Dashboard, Laporan, Logout, Notifications, Profile2 };

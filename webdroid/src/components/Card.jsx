@@ -6,7 +6,7 @@ export default function Card() {
   return (
     <>
       {/* max-w-4x1 */}
-      <div className="container grid grid-cols-3 gap-10 mx-[1px] max-w-5xl my-[20px]">
+      <div className="container grid grid-cols-3 gap-10 mx-[1px] max-w-5xl my-[100px]">
         {/* Baris 1 */}
         {/* Col 1 */}
         <div className="md:col-span-2 col-span-3  md:items-start items-center md:text-start text-center">
@@ -60,10 +60,6 @@ export default function Card() {
             <p>{cardsData[4].content}</p>
           </div>
         </div>
-      </div>
-      {/*  */}
-      <div className='p-20'>
-
       </div>
     </>
   );

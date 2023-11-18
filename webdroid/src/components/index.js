@@ -6,4 +6,8 @@ import Demo from "./Demo";
 import About from "./About";
 import Card from "./Card";
 
-export { Navbar, Hero, Button, Download, Demo, About, Card };
+// 
+import Home from "../pages/Home"
+import Notifikasi from "../pages/Notifikasi";
+
+export { Navbar, Hero, Button, Download, Demo, About, Card, Notifikasi, Home};
