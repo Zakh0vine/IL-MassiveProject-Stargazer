@@ -2,17 +2,19 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        Poppins: ['Poppins']
-      }
+        poppins: ["Poppins", "sans-serif"],
+      },
+      backgroundGradient: {
+        '0': 'var(--gradient)',
+        '50': 'var(--gradient)',
+        '100': 'var(--gradient)',
+      },
     },
   },
-  plugins: [
-      require('@tailwindcss/typography'),
-  ],
+  plugins: [],
 }
-
