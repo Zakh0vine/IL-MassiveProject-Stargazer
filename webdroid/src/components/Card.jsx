@@ -1,13 +1,6 @@
 import React from 'react';
 import { Manage, Recruiting, Risk, Star, Time } from "../assets/image";
-
-const cardsData = [
-  { title: ' ', content: '', img: "" },
-  { title: 'Metode FIFO FEFO', content: 'Sistem rotasi stok "FIFO" (First-In-First-Out) & “FEFO” (First-Expired-First-Out) untuk efisiensi manajemen persediaan.', img: 'path/to/image1.jpg' },
-  { title: 'Cetak Laporan', content: 'Cetak laporan yang informatif dan mudah dipahami untuk analisis apotek dengan lebih baik.', img: 'path/to/image1.jpg' },
-  { title: 'Notifikasi', content: 'Dapatkan notifikasi ketika barang mendekati tanggal kadaluwarsa atau stok hampir habis.', img: 'path/to/image1.jpg' },
-  { title: 'Filter dan Riwayat', content: 'Memudahkan Anda dalam menyaring data, seperti jenis obat yang tersedia dan riwayat obat masuk maupun terjual.', img: 'path/to/image1.jpg' },
-];
+import { cardsData } from "../constants";
 
 export default function Card() {
   return (
@@ -15,18 +8,18 @@ export default function Card() {
       {/* max-w-4x1 */}
       <div className="container grid grid-cols-3 gap-10 mx-[1px] max-w-5xl my-[20px]">
         {/* Baris 1 */}
+        {/* Col 1 */}
         <div className="md:col-span-2 col-span-3  md:items-start items-center md:text-start text-center">
           <div className="bg-white p-9 h-full rounded-xl shadow-md md:items-start md:text-start ">
             <div className='flex justify-center items-center w-full h-full'>
               <h3 className="text-[50px] font-bold">
-                Fitur
-                <span className="text-blue-400 mx-2"> Spesial </span> <br />
-                Untuk Anda
+                Fitur<span className="text-blue-400 mx-2"> Spesial </span> <br/>Untuk Anda
               </h3>
               <img src={Star} alt="Deskripsi gambar bintang burik" className='w-[200px] h-auto object-contain' />
             </div>
           </div>
         </div>
+        {/* Col 2 */}
         <div className="md:col-span-1 col-span-3 md:items-start items-center md:text-start text-center">
           <div className="bg-white p-4 px-8 py-6 md:mx-auto mx-100 max-w-4xl rounded-xl shadow-md">
             <div className='w-[100%] flex justify-center items-center'>
@@ -36,8 +29,8 @@ export default function Card() {
             <p>{cardsData[1].content}</p>
           </div>
         </div>
-
         {/* Baris 2 */}
+        {/* Col 1 */}
         <div className="md:col-span-1 col-span-3 md:items-start items-center md:text-start text-center">
           <div className="bg-white p-4 h-full rounded-xl shadow-md">
             <div className='w-[100%] flex justify-center items-center'>
@@ -47,6 +40,7 @@ export default function Card() {
             <p>{cardsData[2].content}</p>
           </div>
         </div>
+        {/* Col 2 */}
         <div className="md:col-span-1 col-span-3 md:items-start items-center md:text-start text-center">
           <div className="bg-white p-4 h-full rounded-xl shadow-md">
             <div className='w-[100%] flex justify-center items-center'>
@@ -56,6 +50,7 @@ export default function Card() {
             <p>{cardsData[3].content}</p>
           </div>
         </div>
+        {/* Col 3 */}
         <div className="md:col-span-1 col-span-3">
           <div className="bg-white p-4 h-full rounded-xl shadow-md md:items-start items-center md:text-start text-center">
             <div className='w-[100%] flex justify-center items-center'>

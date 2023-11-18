@@ -29,7 +29,7 @@ function About() {
         </div>
 
         {/* Header Tim */}
-        <div className=' flex md:py-20 py-10 md:px-25 px-10 mx-20 md:flex-row flex-col'>
+        <div className=' md:items-start text-center md:text-left md:mx-auto'>
           <div>
             <h1 className='flex justify-center text-[40px] font-black p-5'>Struktur Tim</h1>
             <p className='text-xl font-medium text-center md:items-start sm:leading-[45px] leading-[37px]'> Tim kami terdiri dari berbagai ahli, mulai dari pemimpin yang berpengalaman, pengembang aplikasi yang handal hingga desainer UI/UX yang kreatif. </p>
