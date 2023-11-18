@@ -1,4 +1,4 @@
-import Home from "./pages/Home"
+import { Home, Register } from "./pages"
 
 function App() {
   return (

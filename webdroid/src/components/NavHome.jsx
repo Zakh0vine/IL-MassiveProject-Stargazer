@@ -3,7 +3,7 @@ import { navLinks } from "../constants";
 
 import { useState } from "react";
 
-const Navbar = () => {
+const NavHome = () => {
     const [toggle, settoggle] = useState(false);
     const [login, setlogin] = useState(false);
 
@@ -128,4 +128,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default NavHome
