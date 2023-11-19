@@ -1,7 +1,8 @@
 import React from 'react'
-import { NavRegis, InputText } from '../components'
+import { NavRegis, ContentRegis } from '../components'
 
 const Register = () => {
+
     return (
         <div className="w-full overflow-hidden bg-white">
 
@@ -11,9 +12,9 @@ const Register = () => {
                 </div>
             </div>
 
-            <div className="w-full md:px-[120px] px-7 bg-white fixed mt-20 z-[10]">
+            <div className="w-full md:px-[120px] px-7 bg-white fixed mt-16 z-[10]">
                 <div className="w-full">
-                    <InputText type={`text`} name={`nama`} placeholder={`Input Nama Anda`} />
+                    <ContentRegis />
                 </div>
             </div>
 

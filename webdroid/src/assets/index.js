@@ -11,6 +11,7 @@ import playstore from "./playstore.svg";
 import facebook from "./facebook.svg";
 import twitter from "./twitter.svg";
 import instagram from "./instagram.svg";
+import pharmacy from "./pharmacy.svg";
 
 
 // S bar
@@ -22,4 +23,4 @@ import Profile2 from "./ico/Profile.svg";
 
 
 
-export { logo, medication, close, menu, medis, videoshowcase, playstore, application, facebook, twitter, instagram, notif, profile, Dashboard, Laporan, Logout, Notifications, Profile2 };
+export { logo, medication, close, menu, medis, videoshowcase, playstore, application, facebook, twitter, instagram, notif, profile, Dashboard, Laporan, Logout, Notifications, Profile2, pharmacy };

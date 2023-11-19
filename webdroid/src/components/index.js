@@ -7,5 +7,6 @@ import Demo from "./Demo";
 import InputText from "./InputText";
 import About from "./About";
 import Card from "./Card";
+import ContentRegis from "./ContentRegis";
 
-export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card };
+export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, ContentRegis };

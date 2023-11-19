@@ -1,5 +1,6 @@
 import { logo, menu, close } from "../assets";
 import { navLinks } from "../constants";
+import { Link } from "react-router-dom";
 
 import { useState } from "react";
 
