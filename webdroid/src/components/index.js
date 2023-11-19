@@ -8,5 +8,7 @@ import InputText from "./InputText";
 import About from "./About";
 import Card from "./Card";
 import Footer from "./Footer";
+import Navregis from "./NavRegis";
+import NavProfile from "./NavProfile";
 
-export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer };
+export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer, Navregis, NavProfile };

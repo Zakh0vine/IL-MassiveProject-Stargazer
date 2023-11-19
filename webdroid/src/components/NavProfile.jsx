@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { logo } from "../assets";
+import { logo, profile, notif } from "../assets";
 
-const NavRegis = () => {
-  const [Regis, setRegis] = useState(false);
+const NavProfile = () => {
+  const [Profile, setProfile] = useState(false);
 
   return (
     <nav className="w-full flex py-3 items-center navbar flex-1 justify-between">
@@ -10,13 +10,18 @@ const NavRegis = () => {
 
       <ul className="list-none flex justify-end items-center flex-1">
         <li className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] sm:mr-[65px] mr-[30px]`}>
-          <a href="#" className={`border-b-2 ${Regis ? "border-none" : "border-b-[#5d6af8] text-[#5d6af8]"}`} onClick={() => setRegis(false)}>
-            Masuk
+          <a href="#" className={`border-b-2 ${Profile ? "border-none" : "border-b-[#5d6af8] text-[#5d6af8]"}`} onClick={() => setProfile(false)}>
+            Beranda
           </a>
         </li>
         <li className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] sm:mr-[65px] mr-[30px]`}>
-          <a href="#" className={`border-b-2 ${Regis ? "border-b-[#5d6af8] text-[#5d6af8]" : "border-none"}`} onClick={() => setRegis(true)}>
-            Daftar
+          <a href="#">
+            <img src={notif} alt="notif" />
+          </a>
+        </li>
+        <li className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] sm:mr-[65px] mr-[30px]`}>
+          <a href="#">
+            <img src={profile} alt="profile" />
           </a>
         </li>
       </ul>
@@ -24,4 +29,4 @@ const NavRegis = () => {
   );
 };
 
-export default NavRegis;
+export default NavProfile;
