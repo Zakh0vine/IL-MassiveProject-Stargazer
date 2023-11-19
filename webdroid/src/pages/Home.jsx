@@ -1,4 +1,4 @@
-import { Hero, NavHome, Demo, Download, About, Card } from "../components";
+import { Hero, NavHome, Demo, Download, About, Card, Footer } from "../components";
 
 const Home = () => (
   <div className="w-full overflow-hidden bg-white">
@@ -38,6 +38,11 @@ const Home = () => (
       </div>
     </section>
     {/* Footer */}
+    <section className="w-full h-auto">
+      <div className="w-full">
+        <Footer />
+      </div>
+    </section>
   </div>
 );
 
