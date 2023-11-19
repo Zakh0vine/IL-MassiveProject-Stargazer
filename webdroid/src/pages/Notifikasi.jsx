@@ -19,8 +19,10 @@ export default function Notifikasi() {
                     </div>
                 </div>
                 {/*  */}
-                <div className="md:px-[100px] px-7 mt-[100px]">
-                    <Box_Notif />
+                <div className="mt-[150px] mr-8 ">
+                    <div className=''>
+                        <Box_Notif />
+                    </div>
                 </div>
             </div>
         </div >

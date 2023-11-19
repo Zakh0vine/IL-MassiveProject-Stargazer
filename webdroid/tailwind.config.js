@@ -14,6 +14,9 @@ export default {
         '50': 'var(--gradient)',
         '100': 'var(--gradient)',
       },
+      colors: {
+        warnaUnggu: '#5d6af8', 
+      },
     },
   },
   plugins: [],
