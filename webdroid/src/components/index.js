@@ -10,5 +10,7 @@ import Card from "./Card";
 import Footer from "./Footer";
 import Navregis from "./NavRegis";
 import NavProfile from "./NavProfile";
+import Sidebar from "./Sidebar_test";
+import BoxNotif from "./Box_Notif";
 
-export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer, Navregis, NavProfile };
+export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer, Navregis, NavProfile, Sidebar, BoxNotif };

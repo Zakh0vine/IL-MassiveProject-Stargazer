@@ -12,6 +12,8 @@ import instagram from "./instagram.svg";
 import profile from "./profile.svg";
 import notif from "./notif.svg";
 import footerlogo from "./footerlogo.svg";
+import arrowleft from "./ArrowLeft.svg";
+import edit from "./Edit.svg";
 
 // S bar
 import Dashboard from "./ico/Dashboard.svg";
@@ -20,4 +22,4 @@ import Logout from "./ico/Logout.svg";
 import Notifications from "./ico/Notifications.svg";
 import Profile2 from "./ico/Profile.svg";
 
-export { logo, medication, close, menu, medis, videoshowcase, playstore, application, facebook, twitter, instagram, notif, profile, Dashboard, Logout, Notifications, Profile2, Laporan, footerlogo };
+export { logo, medication, close, menu, medis, videoshowcase, playstore, application, facebook, twitter, instagram, notif, profile, Dashboard, Logout, Notifications, Profile2, Laporan, footerlogo, arrowleft, edit };
