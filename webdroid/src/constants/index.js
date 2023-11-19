@@ -73,3 +73,54 @@ export const sideNav = [
         img: Logout,
     },
 ]
+
+
+// Notifikasi
+export const obat = [
+    {nama: 'Paracetamol' },
+    {nama: 'bodrex' },
+    {nama: 'panadol' },
+    {nama: 'masker' },
+    {nama: 'komik' },
+]
+
+
+// Masih cacat ya sistemnya, belum dapat penecerahan
+export const notifikasi = [
+    {
+        id:  '1',
+        title: `Stok obat ${obat[0].nama} sudah`,
+        ket: 'sedikit',
+        kadal: ''
+    },
+    {
+        id:  '2',
+        title: `Stok obat ${obat[1].nama} sudah`,
+        ket: 'habis',
+        kadal: ''
+    },
+    {
+        id:  '3',
+        title: `Stok obat ${obat[2].nama} sudah`,
+        ket: 'expired ',
+        kadal: '1 November 2023 kemarin'
+    },
+    {
+        id:  '4',
+        title: `Stok barang ${obat[3].nama} sudah`,
+        ket: 'habis',
+        kadal: ''
+    },
+    {
+        id:  '5',
+        title: `Stok obat ${obat[4].nama} sudah`,
+        ket: 'keluar',
+        kadal: '1 November 2023'
+    },
+    {
+        id:  '6',
+        title: `Stok obat ${obat[0].nama} sudah`,
+        ket: 'masuk',
+        kadal: ' 17 Oktober 2023'
+    },
+]
