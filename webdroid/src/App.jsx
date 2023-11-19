@@ -7,7 +7,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Tambah Aja Route Halaman lain dibawah */}
-        <Route path="/Rotifikasi" element={<Notifikasi />} />
+        <Route path="/Notifikasi" element={<Notifikasi />} />
         <Route path="/Register" element={<Register />} />
       </Routes>
     </>
