@@ -1,9 +1,9 @@
-import { logo, menu, close, notif, profile } from "../assets";
+import { logo, menu, close } from "../assets";
 import { navLinks } from "../constants";
 
 import { useState } from "react";
 
-const Navbar = () => {
+const NavHome = () => {
     const [toggle, settoggle] = useState(false);
     const [login, setlogin] = useState(false);
 
@@ -90,7 +90,9 @@ const Navbar = () => {
                 ))}
             </ul>
 
-            <img src={logo} alt="logo" className="w-[80px] h-[55px] cursor-pointer" onClick={() => setlogin((prev) => !prev)} />
+            <a href="#">
+                <img src={logo} alt="logo" className="w-[80px] h-[55px] cursor-pointer" onClick={() => setlogin((prev) => !prev)} />
+            </a>
 
             <ul className="list-none lg:flex hidden justify-end items-center flex-1">
                 {
@@ -100,6 +102,7 @@ const Navbar = () => {
                 }
             </ul>
 
+            {/*Sidebar Responsive*/}
             <div className="lg:hidden flex flex-1 justify-end items-center">
                 <img
                     src={toggle ? close : menu}
@@ -128,4 +131,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default NavHome
