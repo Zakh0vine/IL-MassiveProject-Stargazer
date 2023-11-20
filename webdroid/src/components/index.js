@@ -12,5 +12,6 @@ import Navregis from "./NavRegis";
 import NavProfile from "./NavProfile";
 import Sidebar from "./Sidebar_test";
 import BoxNotif from "./Box_Notif";
+import ContentRegis from "./ContentRegis";
 
-export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer, Navregis, NavProfile, Sidebar, BoxNotif };
+export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer, Navregis, NavProfile, Sidebar, BoxNotif, ContentRegis };

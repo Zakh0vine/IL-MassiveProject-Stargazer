@@ -24,22 +24,22 @@ import ksng from './Ellipse 26.svg'
 
 
 export {
-    Manage, 
-    Recruiting,
-    Risk,
-    Star,
-    Time,
-    // 
-    Kiri,
-    Tengah, 
-    Kanan,
-    // 
-    Aditya,
-    Anam,
-    Chandra,
-    Diah,
-    Putra,
-    Adi,
-    Cw1,
-    ksng
-  };
+  Manage,
+  Recruiting,
+  Risk,
+  Star,
+  Time,
+  // 
+  Kiri,
+  Tengah,
+  Kanan,
+  // 
+  Aditya,
+  Anam,
+  Chandra,
+  Diah,
+  Putra,
+  Adi,
+  Cw1,
+  ksng
+};
