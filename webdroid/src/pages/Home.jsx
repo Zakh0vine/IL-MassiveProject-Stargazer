@@ -8,7 +8,7 @@ const Home = () => (
       </div>
     </div>
     {/* Hero */}
-    <section className="w-full md:px-[120px] px-7 bg-white pt-[85px]" id="hero">
+    <section className="w-full md:px-[120px] px-7 bg-white lg:pt-[45px] pt-[85px]" id="hero">
       <div className="w-full">
         <Hero />
       </div>

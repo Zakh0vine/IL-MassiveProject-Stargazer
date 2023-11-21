@@ -11,6 +11,7 @@ import Footer from "./Footer";
 import Navregis from "./NavRegis";
 import NavProfile from "./NavProfile";
 import ContentRegis from "./ContentRegis";
+import ContentLogin from "./ContentLogin";
 import DropDown from "./DropDown";
 
-export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer, Navregis, NavProfile, ContentRegis, DropDown };
+export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer, Navregis, NavProfile, ContentRegis, DropDown, ContentLogin };

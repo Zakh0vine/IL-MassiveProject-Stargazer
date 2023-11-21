@@ -1,4 +1,4 @@
-import { Home, Register, Notifikasi, Blank } from "./pages";
+import { Home, Register, Notifikasi, ContentReport } from "./pages";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         {/* Tambah Aja Route Halaman lain dibawah */}
         <Route path="/Notifikasi" element={<Notifikasi />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/blank" element={<Blank />} />
+        <Route path="/report" element={<ContentReport />} />
       </Routes>
     </>
   );
