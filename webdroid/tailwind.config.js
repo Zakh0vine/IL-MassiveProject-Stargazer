@@ -16,6 +16,7 @@ export default {
         footeratas: "#9EDDFF",
         footerbawah: "#6499E9",
         footertext: "#2E56BD",
+        birugrad: "6499E9",
       },
     },
   },

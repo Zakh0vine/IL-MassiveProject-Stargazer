@@ -14,7 +14,7 @@ const Home = () => (
       </div>
     </section>
     {/* Fitur */}
-    <section className="w-full md:px-[120px] px-7 custom-gradient bg-blue-500 py-[30px]" id="fitur">
+    <section className="w-full md:px-[120px] px-7 bg-gradient-to-t from-white via-footerbawah/[0.4] to-white py-[30px]" id="fitur">
       <div className="w-full flex justify-center">
         <Card />
       </div>
@@ -26,7 +26,7 @@ const Home = () => (
       </div>
     </section>
     {/* About */}
-    <section className="w-full md:px-[120px] px-7 custom-gradient bg-blue-500 pb-[100px]" id="tentang">
+    <section className="w-full md:px-[120px] px-7 bg-gradient-to-t from-white via-blue-500/[0.4] to-white pb-[100px]" id="tentang">
       <div className="w-full">
         <About />
       </div>

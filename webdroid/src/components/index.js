@@ -13,5 +13,7 @@ import NavProfile from "./NavProfile";
 import Sidebar from "./Sidebar_test";
 import BoxNotif from "./Box_Notif";
 import ContentRegis from "./ContentRegis";
+import DropDown from "./DropDown";
+import ProfileForm from "./ProfileForm";
 
-export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer, Navregis, NavProfile, Sidebar, BoxNotif, ContentRegis };
+export { NavHome, Hero, Button, Download, Demo, NavRegis, InputText, About, Card, Footer, Navregis, NavProfile, Sidebar, BoxNotif, ContentRegis, DropDown, ProfileForm };
