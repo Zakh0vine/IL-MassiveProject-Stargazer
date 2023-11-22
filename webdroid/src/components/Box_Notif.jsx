@@ -3,18 +3,18 @@ import { notifikasi } from '../constants';
 
 
 const Lingkaran = ({ bunder }) => (
-    <div className="relative inline-block">
-        <div className="absolute top-[0] left-[-5px] w-12 h-12 bg-warnaUnggu rounded-full z-0 opacity-50">{bunder}</div>
+    <div className="absolute inline-block">
+        <div className="absolute top-[-10px] left-[-10px] w-14 h-14 bg-warnaUnggu rounded-full z-0 opacity-30">{bunder}</div>
     </div>
 )
 
 
 const Box_Notif = () => {
     return (
-        <div className='flex items-start w-full  justify-center lg:mt-5'>
+        <div className='flex items-start w-full  justify-center'>
             <div className='lg:ml-4 lg:w-[750px]'>
-                <Lingkaran />
                 <h1 className='relative text-3xl font-black mb-7'>
+                    <Lingkaran />
                     Notifikasi
                 </h1>
                 {notifikasi.slice(0, notifikasi.length).map((e) => (

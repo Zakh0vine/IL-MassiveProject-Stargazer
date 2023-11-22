@@ -15,6 +15,7 @@ import imageLogin from "./imageLogin.svg"
 import profile from "./profile.svg";
 import notif from "./notif.svg";
 import footerlogo from "./footerlogo.svg";
+import Vector from "./Vector.svg";
 
 // S bar
 import Dashboard from "./ico/Dashboard.svg";
@@ -25,4 +26,4 @@ import Profile2 from "./ico/Profile.svg";
 
 
 
-export { logo, medication, close, menu, medis, report, videoshowcase, playstore, application, facebook, twitter, instagram, notif, profile, Dashboard, Laporan, Logout, Notifications, Profile2, pharmacy, footerlogo, imageLogin };
+export { logo, medication, close, menu, medis, report, videoshowcase, playstore, application, facebook, twitter, instagram, notif, profile, Dashboard, Laporan, Logout, Notifications, Profile2, pharmacy, footerlogo, imageLogin, Vector };
