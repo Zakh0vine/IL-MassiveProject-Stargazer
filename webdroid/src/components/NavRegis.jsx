@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { logo } from "../assets";
 
+
 const NavRegis = () => {
   const [Regis, setRegis] = useState(false);
 

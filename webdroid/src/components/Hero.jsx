@@ -11,11 +11,11 @@ const Hero = () => {
                 <div className='flex-1 md:hidden flex justify-end items-center relative mb-10'>
                     <img src={medication} alt="medisPicture" className='w-[85%] h-[85%] relative' />
                 </div>
-                <Button link="#" text="Jelajahi Lebih Lanjut" customClass="px-10 py-4" />
+                <Button link="#" text="Jelajahi Lebih Lanjut" customClass="px-10 py-4 rounded-[20px]" />
             </div>
 
             <div className='flex-1 md:flex hidden items-center relative my-0'>
-                <img src={medication} alt="medisPicture" className='w-[85%] h-[85%] relative z-[5]' />
+                <img src={medication} alt="medisPicture" className='w-[95%] h-[95%] relative z-[5]' />
             </div>
 
         </div>
