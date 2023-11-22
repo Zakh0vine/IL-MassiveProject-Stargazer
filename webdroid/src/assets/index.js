@@ -17,6 +17,7 @@ import notif from "./notif.svg";
 import footerlogo from "./footerlogo.svg";
 import arrowleft from "./ArrowLeft.svg";
 import edit from "./Edit.svg";
+import Vector from "./Vector.svg";
 
 // S bar
 import Dashboard from "./ico/Dashboard.svg";
@@ -50,4 +51,5 @@ export {
   pharmacy,
   report,
   imageLogin,
+  Vector,
 };

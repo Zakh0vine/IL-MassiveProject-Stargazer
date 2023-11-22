@@ -46,27 +46,27 @@ export const cardsData = [
 
 export const sideNav = [
   {
-    name: "Profile",
+    name: "profile",
     title: "Profile",
     img: Profile2,
   },
   {
-    name: "Dashboard",
+    name: "dashboard",
     title: "Dashboard",
     img: Dashboard,
   },
   {
-    name: "Laporan",
+    name: "report",
     title: "Laporan",
     img: Laporan,
   },
   {
-    name: "Notifikasi",
+    name: "notifikasi",
     title: "Notifikasi",
     img: Notifications,
   },
   {
-    name: "Keluar",
+    name: "logout",
     title: "Keluar",
     img: Logout,
   },

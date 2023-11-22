@@ -12,15 +12,13 @@ const NavHome = () => {
     if (!login) {
       return navLinks.slice(4, 6).map((nav, index) => (
         <li key={nav.id} className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ${index === navLinks.length - 1 ? "mb-0" : "mb-6"}`}>
-          <a href={`#${nav.id}`}>{nav.title}</a>
+          <Link to={index === 0 ? "/login" : index === 1 ? "/register" : "/"}>{nav.title}</Link>
         </li>
       ));
     } else if (login) {
-      return navLinks.slice(-2).map((nav, index) => (
-        <li key={nav.id} className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ${index === navLinks.length - 1 ? "mb-0" : "mb-6"}`}>
-          <a href={`#${nav.id}`} className="capitalize">
-            {nav.id}
-          </a>
+      return navLinks.slice(6, 8).map((nav, index) => (
+        <li key={nav.id} className={`font-poppins font-semibold capitalize cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ${index === navLinks.length - 1 ? "mb-0" : "mb-6"}`}>
+          <Link to={index === 0 ? "/notifikasi" : index === 1 ? "/report" : "/"}>{nav.id}</Link>
         </li>
       ));
     }
@@ -37,15 +35,15 @@ const NavHome = () => {
     } else if (!login && index >= 1 && index <= 2) {
       return (
         <li key={nav.id} className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ml-[65px]`}>
-          <a href={`#${nav.id}`}>{nav.title}</a>
+          <Link to={index === 1 ? "/login" : index === 2 ? "/register" : "/"}>{nav.title}</Link>
         </li>
       );
     } else if (login && index >= 3 && index <= 4) {
       return (
         <li key={nav.id} className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ml-[65px]`}>
-          <a href={`#${nav.id}`}>
+          <Link to={index === 3 ? "/notifikasi" : index === 4 ? "/report" : "/"}>
             <img src={nav.title} alt={nav.id} className="w-[100%] h-[100%]" />
-          </a>
+          </Link>
         </li>
       );
     }

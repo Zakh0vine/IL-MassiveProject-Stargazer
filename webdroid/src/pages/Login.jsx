@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
 import { logo } from '../assets';
-import { ContentRegis } from '../components';
+import { ContentLogin } from '../components'
 
-const Register = () => {
+const Login = () => {
     return (
         <div className="w-full overflow-hidden bg-white">
 
@@ -15,12 +15,12 @@ const Register = () => {
 
                     <ul className="list-none flex justify-end items-center flex-1">
                         <li className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] sm:mr-[65px] mr-[30px]`}>
-                            <Link to="/login" className={`border-b-2`}>
+                            <Link to="/login" className={`border-b-2 border-b-[#5d6af8] text-[#5d6af8]`}>
                                 Masuk
                             </Link>
                         </li>
                         <li className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] sm:mr-[65px] mr-[30px]`}>
-                            <Link to="/login" className={`border-b-2 border-b-[#5d6af8] text-[#5d6af8]`}>
+                            <Link to="/register" className={`border-b-2`}>
                                 Daftar
                             </Link>
                         </li>
@@ -30,7 +30,7 @@ const Register = () => {
 
             <div className="w-full md:px-[120px] px-7 bg-white fixed mt-20 z-[10]">
                 <div className="w-full">
-                    <ContentRegis />
+                    <ContentLogin />
                 </div>
             </div>
 
@@ -38,4 +38,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default Login
