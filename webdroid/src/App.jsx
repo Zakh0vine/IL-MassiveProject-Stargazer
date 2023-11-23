@@ -1,6 +1,6 @@
-import { Home, Register, Notifikasi, Report, Login } from "./pages";
+import { Home, Register, Notifikasi, Report, Login, DashContent } from "./pages";
 import { Route, Routes } from "react-router-dom";
-import DashContent from "./pages/DashboardContent";
+
 
 
 function App() {
@@ -13,7 +13,6 @@ function App() {
       <Route path="/notifikasi" element={<Notifikasi />} />
       <Route path="/report" element={<Report />} />
       <Route path="/dashboard" element={<DashContent />} />
-
     </Routes>
   );
 }
