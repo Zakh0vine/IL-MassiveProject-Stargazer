@@ -10,6 +10,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/notifikasi" element={<Notifikasi />} />
       <Route path="/report" element={<Report />} />
+      <Route path="/dashboard" element={<blank />} />
     </Routes>
   );
 }

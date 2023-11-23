@@ -14,5 +14,8 @@ import DropDown from "./DropDown";
 import ContentReport from "./ContentReport";
 import Sidebar from "./Sidebar_test";
 import Box_Notif from "./Box_Notif";
+import HorizontalBar from "./HorizontalBar";
+import DashboardCard from "./DashboardCard";
+import DashPie from "./DashPie";
 
-export { NavHome, Hero, Button, Download, Demo, InputText, About, Card, Footer, NavProfile, ContentRegis, DropDown, ContentLogin, ContentReport, Sidebar, Box_Notif };
+export { NavHome, Hero, Button, Download, Demo, InputText, About, Card, Footer, NavProfile, ContentRegis, DropDown, ContentLogin, ContentReport, Sidebar, Box_Notif, HorizontalBar, DashPie, DashboardCard };

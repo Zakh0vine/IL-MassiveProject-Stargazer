@@ -29,7 +29,7 @@ const NavHome = () => {
                         key={nav.id}
                         className={`font-poppins font-semibold capitalize cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ${index === navLinks.length - 1 ? 'mb-0' : 'mb-6'}`}
                     >
-                        <Link to={index === 0 ? '/notifikasi' : index === 1 ? '/report' : '/'}>
+                        <Link to={index === 0 ? '/notifikasi' : index === 1 ? '/profile' : '/'}>
                             {nav.id}
                         </Link>
                     </li>
@@ -68,7 +68,7 @@ const NavHome = () => {
                     key={nav.id}
                     className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ml-[65px]`}
                 >
-                    <Link to={index === 3 ? '/notifikasi' : index === 4 ? '/report' : '/'}>
+                    <Link to={index === 3 ? '/notifikasi' : index === 4 ? '/profile' : '/'}>
                         <img src={nav.title} alt={nav.id} className="w-[100%] h-[100%]" />
                     </Link>
                 </li>
