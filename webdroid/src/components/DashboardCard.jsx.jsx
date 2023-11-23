@@ -1,6 +1,6 @@
 import React from 'react';
 import DiaPie from './DashPie';
-import NivoBarChartCard from './horizontalBar';
+import NivoBarChartCard from './HorizontalBar';
 import { Kon, Phar } from '../assets/image/index'
 
 

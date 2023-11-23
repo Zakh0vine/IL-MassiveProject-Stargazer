@@ -1,5 +1,6 @@
 import { Home, Register, Notifikasi, Report, Login, DashContent } from "./pages";
 import { Route, Routes } from "react-router-dom";
+import Proto_dash from "./pages/proto/proto_dash";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/notifikasi" element={<Notifikasi />} />
       <Route path="/report" element={<Report />} />
       <Route path="/dashboard" element={<DashContent />} />
+      <Route path="/dash" element={<Proto_dash />} />
     </Routes>
   );
 }
