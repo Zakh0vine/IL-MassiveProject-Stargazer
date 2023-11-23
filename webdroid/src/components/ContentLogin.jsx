@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { imageLogin } from "../assets"
 import { Button, InputText } from "../components"
 
@@ -21,9 +22,11 @@ const ContentLogin = () => {
                         <InputText type="email" name="email" placeholder="E-Mail" height="55px" />
                         <InputText type="password" name="password" placeholder="Kata Sandi" height="55px" />
 
-                        <div className="mt-[20px]">
-                            <Button link="#" text="Masuk" customClass="flex flex-1 justify-center py-3 rounded-[20px]" />
-                        </div>
+                        <Link to="/">
+                            <div className="mt-[20px]">
+                                <Button link="#" text="Masuk" customClass="flex flex-1 justify-center py-3 rounded-[20px]" />
+                            </div>
+                        </Link>
                     </form>
                 </div>
             </div>

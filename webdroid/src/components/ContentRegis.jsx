@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { imageLogin } from "../assets"
 import { Button, InputText } from "../components"
 
@@ -30,9 +31,11 @@ const ContentRegis = () => {
                             <p className="font-poppins text-[14px] font-medium text-start">Saya setuju untuk mengikuti Syarat dan Ketentuan serta Kebijakan Privasi</p>
                         </div>
 
-                        <div className="mt-[20px] w-full flex justify-center flex-1">
-                            <Button link="#" text="Buat Akun" customClass="flex flex-1 justify-center py-3 rounded-[20px]" />
-                        </div>
+                        <Link to="/login">
+                            <div className="mt-[20px] w-full flex justify-center flex-1">
+                                <Button link="" text="Buat Akun" customClass="flex flex-1 justify-center py-3 rounded-[20px]" />
+                            </div>
+                        </Link>
                     </form>
                 </div>
             </div>

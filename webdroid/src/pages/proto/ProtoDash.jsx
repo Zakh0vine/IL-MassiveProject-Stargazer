@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavProfile, Sidebar, Footer } from '../../components'
-import Proto_dashCard from '../../components/proto/proto_dashCard.jsx'
+import { NavProfile, Sidebar, Footer } from '../../components/index.js'
+import Proto_dashCard from '../../components/proto/ProtoDashCard.jsx'
 
 export default function Proto_dash() {
   return (

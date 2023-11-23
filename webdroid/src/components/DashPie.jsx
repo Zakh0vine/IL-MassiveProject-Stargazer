@@ -32,10 +32,9 @@ const DiaPie = ({ data, isDashboard=false}) => (
       arcLinkLabel={false}
       arcLabel={false}
       colors={colors}
-    
+
     />
   </div>
 );
 
 export default DiaPie;
-
