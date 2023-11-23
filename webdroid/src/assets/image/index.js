@@ -22,10 +22,6 @@ import Adi from './Scrum Mobile.svg'
 import Cw1 from './Cewe 1.svg'
 import ksng from './Ellipse 26.svg'
 
-// 
-import Kon from './1.svg'
-import Phar from './Working dashboard.svg'
-
 
 export {
   Manage,
@@ -45,8 +41,5 @@ export {
   Putra,
   Adi,
   Cw1,
-  ksng,
-  // 
-  Kon,
-  Phar
+  ksng
 };
