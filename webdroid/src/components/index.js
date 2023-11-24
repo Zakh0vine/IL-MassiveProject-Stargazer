@@ -15,5 +15,6 @@ import DropDown from "./DropDown";
 import ContentReport from "./ContentReport";
 import ProfileForm from "./ProfileForm";
 import NavProfile from "./NavProfile";
+import DashTab from "./DashTab";
 
-export { NavHome, Hero, Button, Download, Demo, InputText, About, Card, Footer, NavProfile, ContentRegis, DropDown, ContentLogin, ContentReport, Sidebar, Box_Notif, ProfileForm };
+export { NavHome, Hero, Button, Download, Demo, InputText, About, Card, Footer, NavProfile, ContentRegis, DropDown, ContentLogin, ContentReport, Sidebar, Box_Notif, ProfileForm, DashTab };
