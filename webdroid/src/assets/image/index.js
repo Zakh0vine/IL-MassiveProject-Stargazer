@@ -4,6 +4,9 @@ import Risk from './Risk management and controlling threats.svg'
 import Star from './Star Filled.svg'
 import Time from './Time management with alarm clock, books, magnifier, megaphone.svg'
 
+import Kon from './1.svg'
+import Phar from './Working dashboard.svg'
+
 // About
 import Kiri from './Kiri.svg'
 import Tengah from './Tengah.svg'
@@ -41,5 +44,8 @@ export {
   Putra,
   Adi,
   Cw1,
-  ksng
+  ksng,
+  // 
+  Kon,
+  Phar
 };

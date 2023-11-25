@@ -18,6 +18,8 @@ import footerlogo from "./footerlogo.svg";
 import arrowleft from "./ArrowLeft.svg";
 import edit from "./Edit.svg";
 import Vector from "./Vector.svg";
+import checkbox from "./checkbox.svg";
+import UC from "./UC.svg";
 
 // S bar
 import Dashboard from "./ico/Dashboard.svg";
@@ -52,4 +54,6 @@ export {
   report,
   imageLogin,
   Vector,
+  checkbox,
+  UC,
 };

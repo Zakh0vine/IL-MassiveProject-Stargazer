@@ -5,5 +5,6 @@ import Profile from "./Profile";
 import Blank from "./Blank";
 import Login from "./Login";
 import Report from "./Report";
+import DashContent from "./DashboardContent";
 
-export { Home, Register, Notifikasi, Profile, Blank, Login, Report };
+export { Home, Register, Notifikasi, Profile, Blank, Login, Report, DashContent };

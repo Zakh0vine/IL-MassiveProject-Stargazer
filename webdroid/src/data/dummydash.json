@@ -1,0 +1,22 @@
+[
+  { "id": 1, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 2, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 3, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 4, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 5, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 6, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 7, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 8, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 9, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 10, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 11, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 12, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 13, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 14, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 15, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 16, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 17, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 18, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 19, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" },
+  { "id": 20, "nama_obat": "Obat Kumur Antiseptik", "brand": "Betadin", "stock": "5", "catatan": "Butuh resep", "status": "low" }
+]
