@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 
 
+
 function App() {
   return (
     <Routes>
@@ -15,6 +16,7 @@ function App() {
       <Route path="/dashboard" element={<DashContent />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/Blank" element={<Blank />} />
+
     </Routes>
   );
 }

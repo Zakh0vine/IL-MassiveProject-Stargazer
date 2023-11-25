@@ -1,6 +1,5 @@
 import React from 'react'
-import DickTest from '../components/DashboardCard.jsx'
-import { NavProfile, Sidebar, Footer } from '../components'
+import { NavProfile, Sidebar, Footer, Dash } from '../components'
 
 export default function DashContent() {
   return (
@@ -13,7 +12,7 @@ export default function DashContent() {
           <Sidebar content={1} />
         </div>
         <div className="lg:mx-1 mx-0 h-auto">
-          <DickTest />
+          <Dash />
         </div>
       </div>
       {/* Footer */}
