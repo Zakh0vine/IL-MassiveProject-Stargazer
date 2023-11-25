@@ -1,42 +1,37 @@
 import { createColumnHelper, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable } from "@tanstack/react-table";
 import { USERS } from "../data";
 import { useState } from "react";
-import DownloadBtn from "./DownloadBtn";
+import CetakBtn from "./CetakBtn";
 import DebouncedInput from "./DebouncedInput";
-import { SearchIcon } from "../Icons/Icons";
 
-const TanStackTable = () => {
+const LapDash = () => {
   const columnHelper = createColumnHelper();
 
   const columns = [
     columnHelper.accessor("", {
-      id: "S.No",
+      id: "id",
       cell: (info) => <span>{info.row.index + 1}</span>,
-      header: "S.No",
+      header: "ID",
     }),
-    columnHelper.accessor("profile", {
-      cell: (info) => <img src={info?.getValue()} alt="..." className="rounded-full w-10 h-10 object-cover" />,
-      header: "Profile",
-    }),
-    columnHelper.accessor("firstName", {
+    columnHelper.accessor("drug", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "First Name",
+      header: "Nama Obat",
     }),
-    columnHelper.accessor("lastName", {
+    columnHelper.accessor("brand", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Last Name",
+      header: "Merek Obat",
     }),
-    columnHelper.accessor("age", {
+    columnHelper.accessor("stock", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Age",
+      header: "Stok",
     }),
-    columnHelper.accessor("visits", {
+    columnHelper.accessor("catatan", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Visits",
+      header: "Catatan",
     }),
-    columnHelper.accessor("progress", {
+    columnHelper.accessor("status", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Progress",
+      header: "Status",
     }),
   ];
   const [data] = useState(() => [...USERS]);
@@ -57,7 +52,6 @@ const TanStackTable = () => {
     <div className="p-2 max-w-5xl mx-auto text-white fill-gray-400">
       <div className="flex justify-between mb-2">
         <div className="w-full flex items-center gap-1">
-          <SearchIcon />
           <DebouncedInput
             value={globalFilter ?? ""}
             onChange={(value) => setGlobalFilter(String(value))}
@@ -65,7 +59,7 @@ const TanStackTable = () => {
             placeholder="Search all columns..."
           />
         </div>
-        <DownloadBtn data={data} fileName={"peoples"} />
+        <CetakBtn data={data} fileName={"peoples"} />
       </div>
       <table className="border border-gray-700 w-full text-left">
         <thead className="bg-indigo-600">
@@ -159,4 +153,4 @@ const TanStackTable = () => {
   );
 };
 
-export default TanStackTable;
+export default LapDash;

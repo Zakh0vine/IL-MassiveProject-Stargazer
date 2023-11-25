@@ -15,6 +15,35 @@ import DropDown from "./DropDown";
 import ContentReport from "./ContentReport";
 import ProfileForm from "./ProfileForm";
 import NavProfile from "./NavProfile";
-import DashCont from "./DashboardCard.jsx";
+import Dash from "./DashboardCard.jsx";
+import DiaPie from "./DashPie";
+import NivoBarChartCard from "./HorizontalBar";
+import DebouncedInput from "./DebouncedInput.jsx";
+import CetakBtn from "./CetakBtn";
+import LapDash from "./LapDash.jsx";
 
-export { NavHome, Hero, Button, Download, Demo, InputText, About, Card, Footer, NavProfile, ContentRegis, DropDown, ContentLogin, ContentReport, Sidebar, Box_Notif, ProfileForm, DashCont };
+export {
+  NavHome,
+  Hero,
+  Button,
+  Download,
+  Demo,
+  InputText,
+  About,
+  Card,
+  Footer,
+  NavProfile,
+  ContentRegis,
+  DropDown,
+  ContentLogin,
+  ContentReport,
+  Sidebar,
+  Box_Notif,
+  ProfileForm,
+  Dash,
+  DiaPie,
+  NivoBarChartCard,
+  DebouncedInput,
+  CetakBtn,
+  LapDash,
+};

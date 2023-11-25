@@ -20,6 +20,7 @@ import edit from "./Edit.svg";
 import Vector from "./Vector.svg";
 import checkbox from "./checkbox.svg";
 import UC from "./UC.svg";
+import searchicon from "./searchicon.svg";
 
 // S bar
 import Dashboard from "./ico/Dashboard.svg";
@@ -56,4 +57,5 @@ export {
   Vector,
   checkbox,
   UC,
+  searchicon,
 };

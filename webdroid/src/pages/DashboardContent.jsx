@@ -1,5 +1,5 @@
 import React from "react";
-import { NavProfile, Sidebar, Footer, DashCont } from "../components";
+import { NavProfile, Sidebar, Footer, Dash, LapDash } from "../components";
 
 export default function DashContent() {
   return (
@@ -12,8 +12,12 @@ export default function DashContent() {
           <Sidebar content={1} />
         </div>
         <div className="lg:mx-1 mx-0 h-auto">
-          <DashCont />
+          <Dash />
         </div>
+      </div>
+      {/* Laporan Dashboard*/}
+      <div className="w-full h-auto bg-gray-900">
+        <LapDash />
       </div>
       {/* Footer */}
       <div className="w-full h-auto">
