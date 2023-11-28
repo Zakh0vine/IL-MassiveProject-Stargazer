@@ -16,7 +16,7 @@ export default function DashContent() {
         </div>
       </div>
       {/* Laporan Dashboard*/}
-      <div className="w-full h-auto bg-gray-900">
+      <div className="w-full h-auto">
         <LapDash />
       </div>
       {/* Footer */}

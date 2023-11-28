@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-
 export function createRandomUser() {
   return {
     drug: faker.person.firstName(),
