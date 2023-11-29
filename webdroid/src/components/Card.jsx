@@ -9,7 +9,7 @@ export default function Card() {
       <div className="container grid grid-cols-3 gap-10 mx-[1px] max-w-5xl my-[100px]">
         {/* Baris 1 */}
         {/* Col 1 */}
-        <div className="md:col-span-2 col-span-3  md:items-start items-center md:text-start text-center">
+        <div className="md:col-span-2 col-span-3 md:items-start items-center md:text-start text-center">
           <div className="bg-white p-9 h-full rounded-xl shadow-md md:items-start md:text-start ">
             <div className='flex justify-center items-center w-full h-full'>
               <h3 className="text-[50px] font-bold">

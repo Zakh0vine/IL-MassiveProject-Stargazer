@@ -3,7 +3,7 @@ import { ResponsiveBar } from '@nivo/bar';
 
 const colors = ['#FF9742'];
 
-const HorizontalBar = () => {
+const HorizontalBarChartCard = () => {
     const data = [
         { data: 'Obat Masuk', value: 250 },
         { data: 'Obat Keluar', value: 50 },
@@ -42,4 +42,4 @@ const HorizontalBar = () => {
     );
 };
 
-export default HorizontalBar;
+export default HorizontalBarChartCard;

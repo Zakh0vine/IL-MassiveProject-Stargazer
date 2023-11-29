@@ -1,4 +1,4 @@
-import { Home, Register, Notifikasi, Report, Login } from "./pages";
+import { Home, Register, Notifikasi, Report, Login, Profile, Blank, DashContent } from "./pages";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -10,7 +10,9 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/notifikasi" element={<Notifikasi />} />
       <Route path="/report" element={<Report />} />
-      <Route path="/dashboard" element={<blank />} />
+      <Route path="/dashboard" element={<DashContent />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/blank" element={<Blank />} />
     </Routes>
   );
 }
