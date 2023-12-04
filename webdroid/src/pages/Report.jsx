@@ -1,4 +1,4 @@
-import { ContentReport, NavProfile, Sidebar, Footer } from "../components";
+import { ContentReport, NavProfile, Sidebar, Footer, LapTabIn, LapTabOut } from "../components";
 
 const Report = () => {
   return (
@@ -7,7 +7,7 @@ const Report = () => {
         <NavProfile />
       </div>
 
-      <div className="flex flex-1 lg:justify-start justify-center items-start w-full min-h-screen h-auto my-[100px] lg:px-[120px] px-10 py-10">
+      <div className="flex flex-1 lg:justify-start justify-center items-start w-full min-h-screen h-auto my-[100px] lg:px-[120px] px-10 py-10 bg-gradient-to-b from-white from-5% via-blue-500/[0.4] to-white to-95%">
         <div className="lg:mx-5 mx-0 self-start">
           <Sidebar content={2} />
         </div>
@@ -15,7 +15,13 @@ const Report = () => {
           <ContentReport />
         </div>
       </div>
-
+      {/* Laporan Dashboard*/}
+      <div className="w-full h-auto">
+        <LapTabIn />
+      </div>
+      <div className="w-full h-auto">
+        <LapTabOut />
+      </div>
       {/* Footer */}
       <div className="w-full h-auto">
         <Footer />

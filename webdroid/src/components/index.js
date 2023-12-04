@@ -21,6 +21,8 @@ import NivoBarChartCard from "./HorizontalBar";
 import DebouncedInput from "./DebouncedInput.jsx";
 import CetakBtn from "./CetakBtn";
 import LapDash from "./LapDash.jsx";
+import LapTabIn from "./LapTabIn.jsx";
+import LapTabOut from "./LabTabOut.jsx";
 
 export {
   NavHome,
@@ -46,4 +48,6 @@ export {
   DebouncedInput,
   CetakBtn,
   LapDash,
+  LapTabIn,
+  LapTabOut,
 };

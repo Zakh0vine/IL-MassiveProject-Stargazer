@@ -1,6 +1,6 @@
 import React from "react";
 import { Kiri, Tengah, Kanan } from "../assets/image";
-import { Aditya, Anam, Chandra, Diah, Putra, Adi, Cw1, ksng } from "../assets/image";
+import { Aditya, Anam, Chandra, Diah, Putra, Adi, Cw1, ksng, adi2, tiya } from "../assets/image";
 import "../index.css";
 
 function About() {
@@ -43,15 +43,15 @@ function About() {
           <div className="grid grid-cols-5 m-10 gap-5 px-10 text-center">
             <img src={Aditya} alt="aditya" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
             <img src={Anam} alt="anam" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
-            <img src={Diah} alt="diah" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
+            <img src={Cw1} alt="diah" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
             <img src={Chandra} alt="chandrug" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
             <img src={Putra} alt="putra" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
           </div>
           <div className="grid grid-cols-5 m-10 gap-5 px-10 text-center">
-            <img src={Adi} alt="adi" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
-            <img src={Cw1} alt="cw1" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
-            <img src={ksng} alt="ksng1" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
-            <img src={ksng} alt="ksng2" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
+            <img src={adi2} alt="adi" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
+            <img src={Diah} alt="cw1" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
+            <img src={Adi} alt="ksng1" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
+            <img src={tiya} alt="ksng2" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
             <img src={ksng} alt="ksng3" className="w-32 h-auto md:w-24 md:h-auto place-self-center" />
           </div>
         </div>

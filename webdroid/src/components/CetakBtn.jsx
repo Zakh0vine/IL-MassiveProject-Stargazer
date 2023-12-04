@@ -12,7 +12,7 @@ const CetakBtn = ({ data = [], fileName }) => {
         XLSX.writeFile(workbook, fileName ? `${fileName}.xlsx` : "data.xlsx");
       }}
     >
-      Download
+      Print Laporan
     </button>
   );
 };
