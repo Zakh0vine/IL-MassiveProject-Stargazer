@@ -18,6 +18,13 @@ export default {
         footertext: "#2E56BD",
         birugrad: "#6499E9",
         birugrad2: "#67A3EA",
+        // Notif
+        burjo: "#08ACC3",
+        keju: "#FFA800",
+        unggu: "#5301FF",
+        banteng: "#FF0000",
+        hijo: "#058E23",
+        penghitaman: "#00000",
       },
     },
   },

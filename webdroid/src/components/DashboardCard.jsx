@@ -18,10 +18,10 @@ export default function Dash() {
         </div>
         <div className="text-xl font-bold py-2">Dashboard</div>
       </div>
-      <div className="container grid grid-cols-2 gap-10 max-w-2xl md:m-10 flex justify-center">
+      <div className="container grid grid-cols-2 gap-10 max-w-2xl md:m-10 justify-center">
         {/* Card 1 */}
         <div className="col-span-2 md:col-span-1 md:items-start items-center md:text-start text-center">
-          <div className="bg-white rounded-md shadow-md w-full lg:col-span-1 col-span-2 lg:w-full w-[500px] outline outline-offset-0">
+          <div className="bg-white rounded-md shadow-md lg:col-span-1 col-span-2 lg:w-full outline outline-offset-0">
             <div className="p-3">
               {/* 1 */}
               <div className="flex justify-between py-3">
@@ -38,20 +38,20 @@ export default function Dash() {
           </div>
         </div>
         <div className="col-span-2 md:col-span-1 md:items-start items-center md:text-start text-center">
-          <div className="flex justify-center lg:flex hidden">
+          <div className="justify-center lg:flex hidden">
             <img src={Phar} className="md:h-[200px] w-auto" />
           </div>
         </div>
         {/* Card 2 */}
         <div className="col-span-2 md:col-span-1 md:items-start items-center md:text-start text-center ">
-          <div className="bg-white rounded-md shadow-md w-full lg:col-span-1 col-span-2 lg:w-full w-[500px] outline outline-offset-0">
+          <div className="bg-white rounded-md shadow-md  lg:col-span-1 col-span-2 lg:w-full outline outline-offset-0">
             <div className="p-3">
               {/*  */}
               <div className="flex font-bold text-xl mb-2">Jumlah Obat</div>
               <hr />
               <div className="flex gap-10 m-2">
                 <div>4H 18M</div>
-                <div className="md:mr-2 w-[65px] border rounded-full px-1 text-blue-200 bg-white self-end flex justify-center font-bold outline outline-2">5.7%</div>
+                <div className="md:mr-2 w-[65px] border rounded-full px-1 bg-green-400 self-end flex justify-center font-semibold ">5.7%</div>
               </div>
               <div className="h-[100px]">
                 <NivoBarChartCard />
@@ -60,7 +60,7 @@ export default function Dash() {
           </div>
         </div>
         <div className="col-span-2 md:col-span-1 md:items-start items-center md:text-start text-center ">
-          <div className="bg-white rounded-md shadow-md w-full lg:col-span-1 col-span-2 lg:w-full w-[500px]  outline outline-offset-0">
+          <div className="bg-white rounded-md shadow-md  lg:col-span-1 col-span-2 lg:w-full outline outline-offset-0">
             <div className="">
               <div className="flex justify-between p-3">
                 <div className="font-bold text-xl">Level Stock</div>

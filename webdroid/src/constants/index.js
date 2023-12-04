@@ -80,37 +80,37 @@ export const notifikasi = [
   {
     id: "1",
     title: `Stok obat ${obat[0].nama} sudah`,
-    ket: "sedikit",
+    ket: "Sedikit",
     kadal: "",
   },
   {
     id: "2",
     title: `Stok obat ${obat[1].nama} sudah`,
-    ket: "habis",
+    ket: "Habis",
     kadal: "",
   },
   {
     id: "3",
     title: `Stok obat ${obat[2].nama} sudah`,
-    ket: "expired ",
+    ket: "Expired ",
     kadal: "1 November 2023 kemarin",
   },
   {
     id: "4",
     title: `Stok barang ${obat[3].nama} sudah`,
-    ket: "habis",
+    ket: "Habis",
     kadal: "",
   },
   {
     id: "5",
     title: `Stok obat ${obat[4].nama} sudah`,
-    ket: "keluar",
+    ket: "Keluar",
     kadal: "1 November 2023",
   },
   {
     id: "6",
     title: `Stok obat ${obat[0].nama} sudah`,
-    ket: "masuk",
+    ket: "Masuk",
     kadal: " 17 Oktober 2023",
   },
 ];
