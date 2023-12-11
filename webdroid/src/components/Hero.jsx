@@ -1,4 +1,3 @@
-import { Button } from './index';
 import { medication } from '../assets';
 
 const Hero = () => {
@@ -11,7 +10,7 @@ const Hero = () => {
                 <div className='flex-1 md:hidden flex justify-end items-center relative mb-10'>
                     <img src={medication} alt="medisPicture" className='w-[85%] h-[85%] relative' />
                 </div>
-                <Button link="#" text="Jelajahi Lebih Lanjut" customClass="px-10 py-4 rounded-[20px]" />
+                <a href='#fitur' className='px-10 py-4 rounded-[20px] bg-[#6499E9] hover:bg-[#5081cc] active:bg-[#426eb1] focus:outline-none focus:ring focus:ring-[#97bcf4] font-poppins font-semibold text-white text-[20px]'>Jelajahi Lebih Lanjut</a>
             </div>
 
             <div className='flex-1 md:flex hidden items-center relative my-0'>

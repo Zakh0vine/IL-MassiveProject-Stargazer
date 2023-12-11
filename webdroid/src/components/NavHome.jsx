@@ -1,12 +1,26 @@
 import { logo, menu, close } from "../assets";
 import { navLinks } from "../constants";
 import { Link } from "react-router-dom";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const NavHome = () => {
   const [toggle, settoggle] = useState(false);
   const [login, setlogin] = useState(false);
+
+  axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    axios.get("http://localhost:4923/api/v1/home")
+      .then(res => {
+        if (res.data.Status === "Success") {
+          setlogin(true)
+        } else {
+          setlogin(false)
+        }
+      })
+      .then(err => console.log(err));
+  }, [])
 
   function SideMenu() {
     if (!login) {
@@ -92,7 +106,7 @@ const NavHome = () => {
       </ul>
 
       <a href="#">
-        <img src={logo} alt="logo" className="w-[80px] h-[55px] cursor-pointer" onClick={() => setlogin((prev) => !prev)} />
+        <img src={logo} alt="logo" className="w-[80px] h-[55px] cursor-pointer" />
       </a>
 
       <ul className="list-none lg:flex hidden justify-end items-center flex-1">

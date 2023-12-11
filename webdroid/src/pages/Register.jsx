@@ -28,7 +28,7 @@ const Register = () => {
                 </nav>
             </div>
 
-            <div className="w-full md:px-[120px] px-7 bg-white fixed mt-20 z-[10]">
+            <div className="w-full md:px-[120px] px-7 bg-white fixed lg:mt-20 mt-36 z-[10]">
                 <div className="w-full">
                     <ContentRegis />
                 </div>

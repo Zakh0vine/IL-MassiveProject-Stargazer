@@ -14,13 +14,16 @@
     "@nivo/bar": "^0.84.0",
     "@nivo/pie": "^0.84.0",
     "@tanstack/react-table": "^8.10.7",
+    "axios": "^1.6.2",
     "date-fns": "^2.30.0",
     "i": "^0.3.7",
     "lilconfig": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.2",
     "react-router-dom": "^6.19.0",
     "react-table": "^7.8.0",
+    "sweetalert2": "^11.10.1",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

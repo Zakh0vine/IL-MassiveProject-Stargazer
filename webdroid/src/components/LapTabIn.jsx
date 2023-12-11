@@ -60,7 +60,7 @@ const LapTabIn = () => {
 
   return (
     <div className="w-full">
-      <p className="font-poppins font-bold text-[30px] text-center my-20">Daftar Obat</p>
+      <p className="font-poppins font-bold text-[30px] text-center mb-20">Daftar Obat</p>
       <div className="p-2 max-w-5xl mx-auto text-black border shadow-lg rounded-lg mb-16 overflow-auto">
         <div className=" flex items-center mb-2 ">
           <span className="font-semibold w-[120px] ">Obat Masuk</span>

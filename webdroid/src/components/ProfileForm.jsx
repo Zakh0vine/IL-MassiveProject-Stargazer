@@ -53,7 +53,7 @@ const ProfileForm = () => {
           </div>
 
           <div className="mt-[20px] w-[140px] flex justify-center flex-1">
-            <Button link="#" text="Edit Profile" customClass="flex flex-1 justify-center  rounded-[10px]" />
+            <button type="submit" className="flex flex-1 justify-center py-[0.35rem] rounded-[10px] bg-[#6499E9] hover:bg-[#5081cc] active:bg-[#426eb1] focus:outline-none focus:ring focus:ring-[#97bcf4] font-poppins font-semibold text-white text-[20px]">Edit Profile</button>
           </div>
         </form>
       </div>

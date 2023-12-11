@@ -22,7 +22,7 @@ import Putra from "./Bang Putra.svg";
 
 // Mobile
 import Adi from "./Scrum Mobile.svg";
-import ksng from "./Ellipse 26.svg";
+import ksng from "./kak.svg";
 import Diah from "./Ka Diah.svg";
 import adi2 from "./adi2.svg";
 import tiya from "./tiya.svg";
