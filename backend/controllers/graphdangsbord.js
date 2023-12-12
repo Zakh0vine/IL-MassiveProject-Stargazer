@@ -16,7 +16,28 @@ const pieData = async (req, res) => {
   }
 };
 
+const getWaktu = async (req, res) => {
+  try {
+    const currentDate = new Date(); // Mendapatkan tanggal saat ini
+    const waktu = await query(`SELECT id, id_user, nama, tanggal, jumlah, kadaluarsa FROM babon`);
+
+    const dataWithUpdatedStatus = waktu.map(item => {
+      const expirationDate = new Date(item.kadaluarsa);
+
+      if (expirationDate < currentDate) {
+        return { ...item, status: 'Obat Keluar' };
+      } else {
+        return { ...item, status: 'Obat Masuk'}
+      }
+      return item;
+    });
+    return res.status(200).json({ waktu: dataWithUpdatedStatus });
+  } catch (error) {
+    return res.status(400).json({ message: error });
+  }
+};
 
 module.exports = {
   pieData,
+  getWaktu,
 };
