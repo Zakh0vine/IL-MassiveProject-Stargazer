@@ -7,7 +7,7 @@ import Bar from './Button/BorderData';
 
 export default function Dash() {
   const [data, setData] = useState([])
-
+  
   useEffect(() => {
     const fetchDataProces = async () => {
       try {
@@ -111,7 +111,7 @@ export default function Dash() {
                       .sort((a, b) => b.value - a.value)
                       .map((d) => (
                         <div key={d.id}>
-                          <Bar id={d.id} value={d.value} color={'black'}/>
+                          <Bar id={d.id} value={d.value} />
                         </div>
                       ))}
                   </div>
@@ -124,3 +124,4 @@ export default function Dash() {
     </div>
   );
 }
+
