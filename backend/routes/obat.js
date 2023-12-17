@@ -1,15 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { getObatData } = require("../controllers/obat");
+const { getAllObat, addObat } = require("../controllers/obat");
 
-router.get("/", async (req, res) => {
-  try {
-    const obatData = await getObatData();
-    res.json(obatData);
-  } catch (error) {
-    console.error("Error:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+router.get("/obat", getAllObat);
+router.post("/obat", addObat);
+router.get("/obat", (req, res) => {
+  res.send("Selamat datang di endpoint obat!");
 });
 
 module.exports = router;

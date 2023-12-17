@@ -1,36 +1,37 @@
-// Import modul mysql2
-const mysql = require("mysql2/promise");
+const db = require("../database");
 
-// Fungsi untuk membuat koneksi ke database
-async function createConnection() {
-  return mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    database: "webdroid",
-    password: "",
-  });
-}
-
-// Fungsi untuk mendapatkan data dari tabel obat
-async function getObatData() {
+const getAllObat = async (req, res) => {
   try {
-    // Membuat koneksi
-    const connection = await createConnection();
+    const query = "SELECT * FROM obat";
+    const result = await db(query);
 
-    // Menjalankan query untuk mendapatkan data dari tabel obat
-    const [rows] = await connection.execute("SELECT * FROM obat");
-
-    // Menutup koneksi
-    connection.end();
-
-    // Mengembalikan hasil query
-    return rows;
+    res.status(200).json(result);
   } catch (error) {
-    console.error("Error querying database:", error);
-    throw error;
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
-}
+};
+
+const addObat = async (req, res) => {
+  const { name, brand, stock, catatan } = req.body;
+
+  if (!name || !brand || !stock || !catatan) {
+    return res.status(400).json({ error: "Semua field harus diisi" });
+  }
+
+  try {
+    const query = "INSERT INTO obat (name, brand, stock, catatan) VALUES (?, ?, ?, ?)";
+    const values = [name, brand, stock, catatan];
+    await db(query, values);
+
+    res.status(201).json({ message: "Obat berhasil ditambahkan" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 
 module.exports = {
-  getObatData,
+  getAllObat,
+  addObat,
 };

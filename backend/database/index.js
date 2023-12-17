@@ -1,11 +1,11 @@
 const mysql = require("mysql2/promise");
 
 const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  connectionLimit: process.env.DB_CONNECTION_LIMIT || 10,
+  host: "localhost",
+  user: "root",
+  database: "webdroid",
+  password: "",
+  connectionLimit: 10,
   enableKeepAlive: true,
   keepAliveInitialDelay: 0,
 });

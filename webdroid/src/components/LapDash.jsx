@@ -1,8 +1,8 @@
 import { createColumnHelper, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable } from "@tanstack/react-table";
-import dummydash from "../data/dummydash.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { searchicon } from "../assets";
 import DebouncedInput from "./DebouncedInput";
+import axios from "axios";
 
 const LapDash = () => {
   const [statusFilter, setStatusFilter] = useState("All");
@@ -13,7 +13,7 @@ const LapDash = () => {
       cell: (info) => <span>{info.getValue()}</span>,
       header: "ID",
     }),
-    columnHelper.accessor("nama_obat", {
+    columnHelper.accessor("name", {
       cell: (info) => <span>{info.getValue()}</span>,
       header: "Nama Obat",
     }),
@@ -56,22 +56,7 @@ const LapDash = () => {
       header: "Status",
     }),
   ];
-  const [data, setData] = useState(() => {
-    const newData = dummydash.map((item) => {
-      const stockValue = Number(item.stock);
-      let status;
-      if (stockValue < 10) {
-        status = "Low";
-      } else if (stockValue > 50) {
-        status = "Full";
-      } else {
-        status = "Mid";
-      }
-      return { ...item, status };
-    });
-
-    return newData;
-  });
+  const [data, setData] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
   const table = useReactTable({
@@ -84,6 +69,33 @@ const LapDash = () => {
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
+
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:4923/api/v1/obat");
+        const newData = response.data.map((item) => {
+          const stockValue = Number(item.stock);
+          let status;
+          if (stockValue < 10) {
+            status = "Low";
+          } else if (stockValue > 50) {
+            status = "Full";
+          } else {
+            status = "Mid";
+          }
+          return { ...item, status };
+        });
+        setData(newData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError("Terjadi kesalahan saat mengambil data dari server.");
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="w-full">
@@ -102,7 +114,7 @@ const LapDash = () => {
               }}
               className="p-2 bg-transparent text-[#6499E9] font-poppins bg-white hover:bg-slate-100 focus:ring-4 focus:outline-none focus:ring-[#6499E9] rounded-lg font-semibold outline outline-[#6499E9] outline-3"
             >
-              <option value="All">Filter</option>
+              <option value="All">All</option>
               <option value="Low">Low</option>
               <option value="Mid">Mid</option>
               <option value="Full">Full</option>
@@ -140,7 +152,6 @@ const LapDash = () => {
               .rows.filter((row) => {
                 const stockValue = Number(row.original.stock);
                 const status = row.original.status;
-                console.log("Checking Row:", row.id, "Stock:", stockValue, "Status:", status);
                 return statusFilter === "All" || status === statusFilter;
               })
               .map((row, i) => (
@@ -164,6 +175,7 @@ const LapDash = () => {
             )}
           </tbody>
         </table>
+        {error && <div className="text-red-500">{error}</div>}
         {/* pagination */}
         <div className="flex items-center justify-end mt-2 gap-2">
           <div className=" flex text-white bg-[#6499E9] rounded-lg space-x-1">
