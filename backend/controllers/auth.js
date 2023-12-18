@@ -93,7 +93,7 @@ async function login(req, res) {
     }
 }
 
-function home(req, res) {
+function verifyUser(req, res, next) {
     const token = req.cookies.token;
     if (!token) {
         return res.status(400).json("You Are Not Authenticated")
@@ -103,14 +103,20 @@ function home(req, res) {
                 return res.status(400).json("Token Error")
             } else {
                 req.email = decoded.email;
-                return res.json({ Status: "Success" })
+                next();
             }
         })
     }
 }
 
+function logout(req, res) {
+    res.clearCookie('token');
+    return res.json({ Status: "Success Logout" })
+}
+
 module.exports = {
     register,
     login,
-    home,
+    verifyUser,
+    logout,
 };

@@ -1,7 +1,8 @@
 import { arrowleft, profile, edit } from "../assets";
-import { Button, InputText } from "../components";
+import { InputText } from "../components";
 
-const ProfileForm = () => {
+const ProfileForm = ({ user }) => {
+
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-row w-full justify-center">
@@ -26,25 +27,25 @@ const ProfileForm = () => {
           <div className="flex md:flex-row flex-col gap-[15px]">
             <div className="flex flex-col">
               <label className="text-gray-600 text-sm font-medium">Nama Depan</label>
-              <InputText type="text" name="firstName" placeholder="Anik" py="10px" px="16px" />
+              <InputText type="text" name="firstName" placeholder={user.firstname} py="10px" px="16px" />
             </div>
             <div className="flex flex-col">
               <label className=" text-gray-600 text-sm font-medium">Nama Belakang</label>
-              <InputText type="text" name="lastName" placeholder="Puji Rahayu" py="10px" px="16px" />
+              <InputText type="text" name="lastName" placeholder={user.lastname} py="10px" px="16px" />
             </div>
           </div>
           <div className="flex flex-col gap-[15px]">
             <div className="flex flex-col ">
               <label className=" text-gray-600 text-sm font-medium">Email</label>
-              <InputText type="email" name="email" placeholder="anik@gmail.com" py="10px" px="16px" />
+              <InputText type="email" name="email" placeholder={user.email} py="10px" px="16px" />
             </div>
             <div className="flex flex-col">
               <label className=" text-gray-600 text-sm font-medium">Nomor HP</label>
-              <InputText type="text" name="noHp" placeholder="+62 82123456789" py="10px" px="16px" />
+              <InputText type="text" name="noHp" placeholder={`+62 ` + user.phone_number} py="10px" px="16px" />
             </div>
             <div className="flex flex-col">
               <label className=" text-gray-600 text-sm font-medium">Kata sandi</label>
-              <InputText type="password" name="password" placeholder="SandiYangKuatBerasalDariObatYangHebat" py="10px" px="16px" />
+              <InputText type="password" name="password" placeholder={user.password} py="10px" px="16px" />
             </div>
             <div className="flex flex-col w-1/2">
               <label className=" text-gray-600 text-sm font-medium">Kota</label>

@@ -2,10 +2,18 @@ import { useState } from "react";
 import { logo, profile, notif, menu, close } from "../assets";
 import { sideNav } from '../constants';
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const NavProfile = () => {
   const [Profile, setProfile] = useState(false);
   const [toggle, settoggle] = useState(false);
+
+  const handleLogout = () => {
+    axios.get("http://localhost:4923/api/v1/logout")
+      .then(res => {
+        location.reload(true);
+      }).catch(err => console.log(err));
+  }
 
   return (
     <nav className="w-full flex py-3 items-center navbar flex-1 justify-between">
@@ -46,9 +54,10 @@ const NavProfile = () => {
               <li
                 key={nav.name}
                 className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px]  ${index === sideNav.length - 1 ? 'mb-0' : 'mb-6'} flex gap-4`}
+                onClick={index === sideNav.length - 1 ? handleLogout : null}
               >
                 <img src={nav.img} alt={nav.name} className="w-7 h-7" />
-                <Link to={index === sideNav.length - 1 ? '/' : `/${nav.name}`}>
+                <Link to={index === sideNav.length - 1 ? "/" : `/${nav.name}`}>
                   {nav.title}
                 </Link>
               </li>
