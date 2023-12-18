@@ -2,18 +2,20 @@ import React from "react";
 import { DiaPie, NivoBarChartCard } from ".";
 import { Kon, Phar } from "../assets/image/index";
 
-export default function Dash() {
+export default function Dash({ user }) {
   const data = [
     { id: "Full", value: 100 },
     { id: "Mid", value: 80 },
     { id: "Low", value: 20 },
   ];
 
+  const fullName = user.firstname + " " + user.lastname;
+
   return (
     <div>
       <div className="flex justify-between lg:w-[720px] w-[400px] mx-auto md:py-0 py-10">
         <div>
-          <span className="text-xl font-bold">Hello,</span> <span className="text-blue-300 text-xl">User</span>
+          <span className="text-xl font-bold">Hello,</span> <span className="text-blue-300 text-xl">{fullName}</span>
           <p className="text-gray-500">Here are your daily updates.</p>
         </div>
         <div className="text-xl font-bold py-2">Dashboard</div>

@@ -73,12 +73,14 @@ async function login(req, res) {
             [email]
         );
 
+        const id = userData[0].id;
+
         if (userData.length > 0) {
             // Cek Password
             bcryptjs.compare(password, userData[0].password, function (err, response) {
                 if (err) return res.status(400).json("Error Compare Password")
                 if (response) {
-                    const token = jwt.sign({ email }, "jwt-secret-key", { expiresIn: "1d" });
+                    const token = jwt.sign({ id }, "jwt-secret-key", { expiresIn: "1d" });
                     res.cookie('token', token);
                     return res.status(200).json("Success")
                 } else {
@@ -102,7 +104,7 @@ function verifyUser(req, res, next) {
             if (err) {
                 return res.status(400).json("Token Error")
             } else {
-                req.email = decoded.email;
+                req.id = decoded.id;
                 next();
             }
         })

@@ -20,7 +20,6 @@ const Routing = () => {
     useEffect(() => {
         axios.get("http://localhost:4923/api/v1/user")
             .then(res => {
-                // const { email, password, firstname, lastname, phone_number } = res.data.userData[0];
                 if (res.data.Status === "Success") {
                     setlogin(true)
                     setUser(res.data.userData[0])
@@ -45,7 +44,7 @@ const Routing = () => {
                 {/* Private routes */}
                 <Route element={<AuthRoutes isLoggin={login} />}>
                     <Route path="profile" element={<Profile getUser={user} />} />
-                    <Route path="dashboard" element={<DashContent />} />
+                    <Route path="dashboard" element={<DashContent getUser={user} />} />
                     <Route path="report" element={<Report />} />
                     <Route path="notifikasi" element={<Notifikasi />} />
                 </Route>
