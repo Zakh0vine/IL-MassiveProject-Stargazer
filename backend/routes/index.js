@@ -5,12 +5,14 @@ const cookieParser = require("cookie-parser");
 const auth = require("./auth");
 const user = require("./user");
 const dash = require("./dash");
+const obat = require("./obat");
 
 const apiUrl = "/api/v1";
 
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(apiUrl, auth);
 app.use(apiUrl, user);
 app.use(apiUrl, dash);
+app.use(apiUrl, obat);
 
 module.exports = app;

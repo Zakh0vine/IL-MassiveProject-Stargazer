@@ -2,19 +2,22 @@ const query = require("../database");
 
 async function TestPie(req, res) {
   try {
-    const pieData = await query(`SELECT id, nama_data, jumlah,
-              CASE WHEN jumlah < 50  THEN 'Low'
-                   WHEN jumlah < 200 THEN 'Mid'
-                   WHEN jumlah >= 200 THEN 'High' 
+    const pieData = await query(
+      `SELECT id, name, stock,
+              CASE WHEN stock < 50  THEN 'Low'
+                   WHEN stock < 200 THEN 'Mid'
+                   WHEN stock >= 200 THEN 'High' 
               END AS my_size
-              FROM test
-              WHERE user_id = ?`, [req.id]);
+              FROM obat
+              WHERE user_id = ?`,
+      [req.id]
+    );
     return res.json({
       Status: "Success",
       pieData: pieData.map((item) => ({
         id: item.id,
         label: item.my_size,
-        value: item.jumlah,
+        value: item.stock,
       })),
     });
   } catch (error) {
@@ -22,21 +25,23 @@ async function TestPie(req, res) {
   }
 }
 
-
 // Bar
 async function TestBar(req, res) {
   try {
-    const barData = await query(`SELECT id, nama, tanggal, keluar, jumlah
-                            FROM kudanil
-                            WHERE user_id = ?`, [req.id]);
+    const barData = await query(
+      `SELECT id, name, tgl_masuk, tgl_keluar, stock
+                            FROM obat
+                            WHERE user_id = ?`,
+      [req.id]
+    );
 
     const currentDate = new Date();
-    const dataWithUpdatedStatus = barData.map(item => {
-      const expirationDate = new Date(item.keluar);
+    const dataWithUpdatedStatus = barData.map((item) => {
+      const expirationDate = new Date(item.tgl_keluar);
 
       return {
         ...item,
-        status: expirationDate < currentDate ? 'Obat Keluar' : 'Obat Masuk',
+        status: expirationDate < currentDate ? "Obat Keluar" : "Obat Masuk",
       };
     });
 
@@ -45,10 +50,10 @@ async function TestBar(req, res) {
 
       barData: dataWithUpdatedStatus.map((item) => ({
         id: item.id,
-        label: item.nama,
-        masuk: item.tanggal,
-        luar: item.keluar,
-        value: item.jumlah,
+        label: item.name,
+        masuk: item.tgl_masuk,
+        luar: item.tgl_keluar,
+        value: item.stock,
         status: item.status,
       })),
     });
@@ -56,7 +61,5 @@ async function TestBar(req, res) {
     return res.status(400).json("Something went wrong!");
   }
 }
-
-
 
 module.exports = { TestPie, TestBar };
