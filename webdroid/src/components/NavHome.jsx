@@ -2,25 +2,24 @@ import { logo, menu, close } from "../assets";
 import { navLinks } from "../constants";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
-const NavHome = () => {
+const NavHome = ({ login }) => {
   const [toggle, settoggle] = useState(false);
-  const [login, setlogin] = useState(false);
 
-  axios.defaults.withCredentials = true;
+  // axios.defaults.withCredentials = true;
 
-  useEffect(() => {
-    axios.get("http://localhost:4923/api/v1/home")
-      .then(res => {
-        if (res.data.Status === "Success") {
-          setlogin(true)
-        } else {
-          setlogin(false)
-        }
-      })
-      .then(err => console.log(err));
-  }, [])
+  // useEffect(() => {
+  //   axios.get("http://localhost:4923/api/v1/home")
+  //     .then(res => {
+  //       if (res.data.Status === "Success") {
+  //         setlogin(true)
+  //       } else {
+  //         setlogin(false)
+  //       }
+  //     })
+  //     .then(err => console.log(err));
+  // }, [])
 
   function SideMenu() {
     if (!login) {

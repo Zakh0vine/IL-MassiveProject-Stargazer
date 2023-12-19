@@ -1,7 +1,7 @@
 import React from "react";
 import { NavProfile, Sidebar, Footer, Dash, LapDash } from "../components";
 
-export default function DashContent() {
+export default function DashContent({ getUser }) {
   return (
     <div className="w-full overflow-hidden bg-white">
       <div className="w-full lg:px-[120px] px-10 shadow-lg shadow-slate-200 bg-white fixed z-[10]">
@@ -12,7 +12,7 @@ export default function DashContent() {
           <Sidebar content={1} />
         </div>
         <div className="lg:mx-1 mx-0 h-auto">
-          <Dash />
+          <Dash user={getUser} />
         </div>
       </div>
       {/* Laporan Dashboard*/}

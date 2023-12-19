@@ -1,6 +1,6 @@
 import { NavProfile, Sidebar, ProfileForm, Footer } from "../components";
 
-const Profile = () => {
+const Profile = ({ getUser }) => {
   return (
     <div className="w-full overflow-hidden bg-white">
       <div className="w-full lg:px-[120px] px-10 shadow-lg shadow-slate-200 bg-white fixed z-[10]">
@@ -12,7 +12,7 @@ const Profile = () => {
           <Sidebar content={0} />
         </div>
         <div className="lg:mx-10 mx-0 mt-8 h-auto ">
-          <ProfileForm />
+          <ProfileForm user={getUser} />
         </div>
       </div>
       {/* Footer */}

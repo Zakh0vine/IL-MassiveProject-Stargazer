@@ -1,27 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { DiaPie, NivoBarChartCard } from ".";
 import { Kon, Phar } from "../assets/image/index";
 import fetchData from "../../../backend/api/apiPie";
-import Bar from './Button/BorderData';
+import Bar from "./Button/BorderData";
 
-
-export default function Dash() {
-  const [data, setData] = useState([])
-  
+export default function Dash({ user }) {
+  const [data, setData] = useState([]);
   useEffect(() => {
     const fetchDataProces = async () => {
       try {
-        const api = await fetchData()
+        const api = await fetchData();
         const grouping = api.data.reduce((nama, item) => {
-          const label = item.my_size
+          const label = item.my_size;
           if (!nama[label]) {
             nama[label] = { id: label, label, value: 0 };
           }
           nama[label].value += item.jumlah;
           return nama;
-        }, {})
+        }, {});
 
-        const formatData = Object.values(grouping)
+        const formatData = Object.values(grouping);
         setData(formatData);
       } catch (error) {
         console.log(error);
@@ -35,11 +33,13 @@ export default function Dash() {
     return <div>a</div>;
   }
 
+  const fullName = user.firstname + " " + user.lastname;
+
   return (
     <div>
       <div className="flex justify-between lg:w-[720px] w-[400px] mx-auto md:py-0 py-10">
         <div>
-          <span className="text-xl font-bold">Hello,</span> <span className="text-blue-300 text-xl">User</span>
+          <span className="text-xl font-bold">Hello,</span> <span className="text-blue-300 text-xl">{fullName}</span>
           <p className="text-gray-500">Here are your daily updates.</p>
         </div>
         <div className="text-xl font-bold py-2">Dashboard</div>
@@ -56,10 +56,10 @@ export default function Dash() {
               </div>
               <hr />
               {/* 2 */}
-                <div className="columns-2 font-medium text-md">
+              <div className="columns-2 font-medium text-md">
                 {data.reduce((total, d) => total + d.value, 0)} Obat
-                  <img src={Kon} alt="Juggler" className="w-full h-auto" />
-                </div>
+                <img src={Kon} alt="Juggler" className="w-full h-auto" />
+              </div>
             </div>
           </div>
         </div>
@@ -101,12 +101,12 @@ export default function Dash() {
                 <div className="flex md:gap-6 gap-[100px]  mt-5 md:mx-6 mx-[40px]">
                   {/* Ket */}
                   <div className="flex flex-col gap-5">
-                    <div className='font-semibold'>Full</div>
-                    <div className='font-semibold'>Mid</div>
-                    <div className='font-semibold'>Low</div>
+                    <div className="font-semibold">Full</div>
+                    <div className="font-semibold">Mid</div>
+                    <div className="font-semibold">Low</div>
                   </div>
                   {/* Value */}
-                  <div className='flex flex-col gap-5 mt-[-3px]'>
+                  <div className="flex flex-col gap-5 mt-[-3px]">
                     {data
                       .sort((a, b) => b.value - a.value)
                       .map((d) => (
@@ -124,4 +124,3 @@ export default function Dash() {
     </div>
   );
 }
-

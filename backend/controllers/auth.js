@@ -64,12 +64,14 @@ async function login(req, res) {
     // logic handling
     const userData = await query(`SELECT * FROM users WHERE email = ?`, [email]);
 
+    const id = userData[0].id;
+
     if (userData.length > 0) {
       // Cek Password
       bcryptjs.compare(password, userData[0].password, function (err, response) {
         if (err) return res.status(400).json("Error Compare Password");
         if (response) {
-          const token = jwt.sign({ email }, "jwt-secret-key", { expiresIn: "1d" });
+          const token = jwt.sign({ id }, "jwt-secret-key", { expiresIn: "1d" });
           res.cookie("token", token);
           return res.status(200).json("Success");
         } else {
@@ -84,7 +86,7 @@ async function login(req, res) {
   }
 }
 
-function home(req, res) {
+function verifyUser(req, res, next) {
   const token = req.cookies.token;
   if (!token) {
     return res.status(400).json("You Are Not Authenticated");
@@ -93,15 +95,21 @@ function home(req, res) {
       if (err) {
         return res.status(400).json("Token Error");
       } else {
-        req.email = decoded.email;
-        return res.json({ Status: "Success" });
+        req.id = decoded.id;
+        next();
       }
     });
   }
 }
 
+function logout(req, res) {
+  res.clearCookie("token");
+  return res.json({ Status: "Success Logout" });
+}
+
 module.exports = {
   register,
   login,
-  home,
+  verifyUser,
+  logout,
 };

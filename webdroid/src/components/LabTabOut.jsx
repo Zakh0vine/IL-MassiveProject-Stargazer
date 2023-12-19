@@ -1,7 +1,7 @@
 import { createColumnHelper, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable } from "@tanstack/react-table";
-import dummydash from "../data/dummydash.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DebouncedInput from "./DebouncedInput";
+import axios from "axios";
 
 const LapTabOut = () => {
   const columnHelper = createColumnHelper();
@@ -11,7 +11,7 @@ const LapTabOut = () => {
       cell: (info) => <span>{info.getValue()}</span>,
       header: "ID",
     }),
-    columnHelper.accessor("nama_obat", {
+    columnHelper.accessor("name", {
       cell: (info) => <span>{info.getValue()}</span>,
       header: "Nama Obat",
     }),
@@ -37,14 +37,7 @@ const LapTabOut = () => {
     }),
   ];
 
-  const [data, setData] = useState(() => {
-    const newData = dummydash.map((item) => {
-      return { ...item };
-    });
-
-    return newData;
-  });
-
+  const [data, setData] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
   const table = useReactTable({
@@ -57,6 +50,22 @@ const LapTabOut = () => {
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
+
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:4923/api/v1/obat");
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError("Terjadi kesalahan saat mengambil data dari server.");
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="p-2 max-w-5xl mx-auto text-black border shadow-lg rounded-lg mb-16 overflow-auto">
