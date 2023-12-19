@@ -5,8 +5,8 @@ async function TestPie(req, res) {
     const pieData = await query(
       `SELECT id, name, stock,
               CASE WHEN stock < 50  THEN 'Low'
-                   WHEN stock < 200 THEN 'Mid'
-                   WHEN stock >= 200 THEN 'High' 
+                   WHEN stock < 100 THEN 'Mid'
+                   WHEN stock >= 100 THEN 'High' 
               END AS my_size
               FROM obat
               WHERE user_id = ?`,
@@ -36,18 +36,22 @@ async function TestBar(req, res) {
     );
 
     const currentDate = new Date();
-    const dataWithUpdatedStatus = barData.map((item) => {
-      const expirationDate = new Date(item.tgl_keluar);
+    const dataWithUpdatedStatus = barData
+      .map((item) => {
+        const entryDate = new Date(item.tgl_masuk);
+        const expirationDate = new Date(item.tgl_keluar);
 
-      return {
-        ...item,
-        status: expirationDate < currentDate ? "Obat Keluar" : "Obat Masuk",
-      };
-    });
+        const isEntryWithin3Days = entryDate <= currentDate && currentDate <= new Date(entryDate.getTime() + 3 * 24 * 60 * 60 * 1000);
+
+        return {
+          ...item,
+          status: expirationDate < currentDate ? "Obat Keluar" : isEntryWithin3Days ? "Obat Masuk" : "",
+        };
+      })
+      .filter((item) => item.status !== "");
 
     return res.json({
       Status: "Success",
-
       barData: dataWithUpdatedStatus.map((item) => ({
         id: item.id,
         label: item.name,

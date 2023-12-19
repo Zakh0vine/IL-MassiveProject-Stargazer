@@ -9,8 +9,8 @@ const LapDash = () => {
   const columnHelper = createColumnHelper();
 
   const columns = [
-    columnHelper.accessor("", {
-      cell: (info) => <span>{info.getValue()}</span>,
+    columnHelper.accessor("id", {
+      cell: (info) => <span>{info.row.index + 1}</span>,
       header: "No",
     }),
     columnHelper.accessor("name", {
@@ -76,7 +76,7 @@ const LapDash = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:4923/api/v1/obat");
-        const newData = response.data.map((item) => {
+        const newData = response.data.map((item, index) => {
           const stockValue = Number(item.stock);
           let status;
           if (stockValue < 50) {
@@ -86,7 +86,7 @@ const LapDash = () => {
           } else {
             status = "Mid";
           }
-          return { ...item, status };
+          return { ...item, status, id: index + 1 };
         });
         setData(newData);
       } catch (error) {
