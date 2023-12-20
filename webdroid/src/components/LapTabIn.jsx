@@ -1,6 +1,7 @@
 import { createColumnHelper, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable } from "@tanstack/react-table";
 import { useEffect, useState } from "react";
 import DebouncedInput from "./DebouncedInput";
+import { format } from "date-fns";
 import axios from "axios";
 
 const LapTabIn = () => {
@@ -9,7 +10,7 @@ const LapTabIn = () => {
   const columns = [
     columnHelper.accessor("id", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "ID",
+      header: "No",
     }),
     columnHelper.accessor("name", {
       cell: (info) => <span>{info.getValue()}</span>,
@@ -17,19 +18,19 @@ const LapTabIn = () => {
     }),
     columnHelper.accessor("brand", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Brand/Merek",
+      header: "Brand | Merek",
     }),
     columnHelper.accessor("tgl_masuk", {
-      cell: (info) => <span>{new Date(info.getValue()).toLocaleDateString()}</span>,
+      cell: (info) => <span>{format(new Date(info.getValue()), "yyyy-MM-dd")}</span>,
       header: "Tanggal Masuk",
     }),
     columnHelper.accessor("tgl_exp", {
-      cell: (info) => <span>{new Date(info.getValue()).toLocaleDateString()}</span>,
+      cell: (info) => <span>{format(new Date(info.getValue()), "yyyy-MM-dd")}</span>,
       header: "Tanggal Kadaluarsa",
     }),
     columnHelper.accessor("stock", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Stok",
+      header: "Stok | Box",
     }),
     columnHelper.accessor("catatan", {
       cell: (info) => <span>{info.getValue()}</span>,
@@ -75,7 +76,7 @@ const LapTabIn = () => {
         <div className=" flex items-center mb-2 ">
           <span className="font-semibold w-[120px] ">Obat Masuk</span>
           <div className="flex items-center gap-1 w-full justify-end">
-            <DebouncedInput value={globalFilter ?? ""} onChange={(value) => setGlobalFilter(String(value))} className="p-2 bg-birugrad/60 outline-none w-1/5 focus:w-1/3 duration-300 rounded-lg shadow-lg" placeholder="Cari semua kolom" />
+            <DebouncedInput value={globalFilter ?? ""} onChange={(value) => setGlobalFilter(String(value))} className="p-2 bg-birugrad/60 outline-none w-1/3 focus:w-1/2 duration-300 rounded-lg shadow-lg" placeholder="Cari semua kolom" />
           </div>
         </div>
         <table className="border w-full text-left">
@@ -107,7 +108,7 @@ const LapTabIn = () => {
             ))}
             {table.getRowModel().rows.length === 0 && (
               <tr className="text-center h-32">
-                <td colSpan={12}>Emang ada ya?</td>
+                <td colSpan={12}>Oops, data yang kamu cari belum ada</td>
               </tr>
             )}
           </tbody>

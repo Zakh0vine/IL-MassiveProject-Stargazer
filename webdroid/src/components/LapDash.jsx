@@ -170,7 +170,7 @@ const LapDash = () => {
               ))}
             {table.getRowModel().rows.length === 0 && (
               <tr className="text-center h-32">
-                <td colSpan={12}>Emang ada ya?</td>
+                <td colSpan={12}>Oops, data yang kamu cari belum ada</td>
               </tr>
             )}
           </tbody>

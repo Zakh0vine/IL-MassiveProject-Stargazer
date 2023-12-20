@@ -25,7 +25,7 @@ const DropDown = ({ title, item = [] }) => {
         </button>
 
         {isOpen && (
-          <div className="absolute left-0 mt-2 w-full rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <div className="absolute right-[1px] mt-2 w-full rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
             <ul role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
               {item.map((item) => (
                 <li key={item.key}>
