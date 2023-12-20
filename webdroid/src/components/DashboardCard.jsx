@@ -1,10 +1,6 @@
 import React from "react";
-import { DiaPie, NivoBarChartCard } from ".";
+import { DiaPie, NivoBarChartCard, Total, Time, Presentase, KetPie } from ".";
 import { Kon, Phar } from "../assets/image/index";
-import Total from "./Total";
-import Time from "./Waktu";
-import Presentase from "./Presentase";
-import KetPie from "./KetPie";
 
 export default function Dash({ user }) {
 
@@ -76,7 +72,7 @@ export default function Dash({ user }) {
                 <div className=" w-[150px] h-[150px] pl-3">
                   <DiaPie />
                 </div>
-                  <KetPie />
+                <KetPie />
               </div>
             </div>
           </div>

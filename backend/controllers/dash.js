@@ -13,8 +13,8 @@ async function TestPie(req, res) {
           stock,
           CASE
             WHEN stock < 50  THEN 'Low'
-            WHEN stock < 200 THEN 'Mid'
-            WHEN stock >= 200 THEN 'High' 
+            WHEN stock < 100 THEN 'Mid'
+            WHEN stock >= 100 THEN 'High' 
           END AS my_size
         FROM obat
         WHERE user_id = ?
@@ -35,6 +35,31 @@ async function TestPie(req, res) {
   }
 }
 
+// Jumlah
+async function PieJumlah(req, res) {
+  try {
+    const pieData = await query(`SELECT id, name, stock,
+              CASE 
+                WHEN stock < 50  THEN 'Low'
+                WHEN stock < 100 THEN 'Mid'
+                WHEN stock >= 100 THEN 'High' 
+              END AS my_size
+              FROM obat
+              WHERE user_id = ?`, [req.id]);
+    return res.json({
+      Status: "Success",
+      pieData: pieData.map((item) => ({
+        id: item.id,
+        label: item.my_size,
+        value: item.stock,
+      })),
+    });
+  } catch (error) {
+    return res.status(400).json("Something went wrong!");
+  }
+}
+
+
 // Bar
 async function TestBar(req, res) {
   try {
@@ -48,12 +73,12 @@ async function TestBar(req, res) {
     const currentDate = new Date();
     const dataWithUpdatedStatus = barData.map(item => {
       const entryDate = new Date(item.tgl_masuk);
-      const isEntryWithin3Days = entryDate <= new Date(currentDate.getTime() + 3 * 24 * 60 * 60 * 1000);
-
       const expirationDate = item.tgl_keluar ? new Date(item.tgl_keluar) : null;
-      const isExitWithin3Days = expirationDate && expirationDate <= new Date(currentDate.getTime() + 3 * 24 * 60 * 60 * 1000);
 
-      const status = expirationDate ? 'Obat Keluar' : isEntryWithin3Days ? 'Obat Masuk' : '';
+      const isEntryWithin3Days = entryDate.getTime() >= currentDate.getTime() - 3 * 24 * 60 * 60 * 1000;
+      const isExitWithin3Days = expirationDate && expirationDate.getTime() >= currentDate.getTime() - 3 * 24 * 60 * 60 * 1000;
+
+      const status = isExitWithin3Days ? 'Keluar' : isEntryWithin3Days ? 'Masuk' : '';
       return {
         ...item,
         status: status,
@@ -77,27 +102,9 @@ async function TestBar(req, res) {
   }
 }
 
-async function PieJumlah(req, res) {
-  try {
-    const pieData = await query(`SELECT id, name, stock,
-              CASE WHEN stock < 50  THEN 'Low'
-                   WHEN stock < 200 THEN 'Mid'
-                   WHEN stock >= 200 THEN 'High' 
-              END AS my_size
-              FROM obat
-              WHERE user_id = ?`, [req.id]);
-    return res.json({
-      Status: "Success",
-      pieData: pieData.map((item) => ({
-        id: item.id,
-        label: item.my_size,
-        value: item.stock,
-      })),
-    });
-  } catch (error) {
-    return res.status(400).json("Something went wrong!");
-  }
-}
+
+
+
 
 
 module.exports = { TestPie, TestBar, PieJumlah };

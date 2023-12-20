@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function Presentase({ value }) {
+const Presentase = ({ value }) => {
     const [userData, setUserData] = useState(null);
     const [error, setError] = useState(null);
     const [persentaseObatMasuk, setPersentaseObatMasuk] = useState(0);
@@ -32,15 +32,19 @@ export default function Presentase({ value }) {
         fetchData();
     }, []);
 
-    useEffect(() => {
+    const calculatePercentage = (status) => {
         if (userData && userData.barData && userData.barData.length > 0) {
-            const totalData = userData.barData.length;
-            const obatMasukCount = userData.barData.filter(item => item.status === 'Obat Masuk').length;
-            const obatKeluarCount = userData.barData.filter(item => item.status === 'Obat Keluar').length;
-
-            setPersentaseObatMasuk((obatMasukCount / totalData) * 100);
-            setPersentaseObatKeluar((obatKeluarCount / totalData) * 100);
+            const totalData = userData.barData.reduce((acc, item) => acc + item.value, 0);
+            const statusTotal = userData.barData.filter(item => item.status === status).reduce((acc, item) => acc + item.value, 0);
+            return (statusTotal / totalData) * 100;
         }
+
+        return 0;
+    };
+
+    useEffect(() => {
+        setPersentaseObatMasuk(calculatePercentage('Masuk'));
+        setPersentaseObatKeluar(calculatePercentage('Keluar'));
     }, [userData]);
 
     if (error) {
@@ -53,10 +57,11 @@ export default function Presentase({ value }) {
 
     return (
         <div>
-            {/* Gunakan nilai prop yang diteruskan */}
             <div className={`md:mr-2 w-[65px] border rounded-full px-1 self-end flex justify-center font-semibold ${value === 'masuk' ? 'bg-green-400' : 'bg-red-400'}`}>
                 {value === 'masuk' ? persentaseObatMasuk.toFixed(1) : persentaseObatKeluar.toFixed(1)}%
             </div>
         </div>
     );
 }
+
+export default Presentase;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
-import { Kosong } from "../assets"
 
 const colors = ['#FF9742'];
 
@@ -38,7 +37,11 @@ const TestingBar = () => {
   }
 
   if (!userData || !userData.barData || userData.barData.length === 0) {
-    return <img src={Kosong} alt="Deskripsi Gambar" />
+    return <div className='font-bold flex justify-center items-center text-lg'>
+      <div className='py-9'>
+        Data Kosong
+      </div>
+    </div>
   }
 
 

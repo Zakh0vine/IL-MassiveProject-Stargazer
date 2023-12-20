@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Bar from './Bar';
+
+import { Bar } from ".";
 import { Kosong } from '../assets';
 
 const KetPie = () => {
@@ -44,28 +45,32 @@ const KetPie = () => {
     );
   }
 
-  const categories = [ 'High', 'Mid', 'Low'];
-
+  const categories = ['High', 'Mid', 'Low'];
+  const categoryColors = {
+    High: 'text-high',
+    Mid: 'text-mid',
+    Low: 'text-low',
+  };
   return (
     <div className="flex md:gap-6 gap-[100px]  mt-5 md:mx-6 mx-[40px]">
       <div className="flex flex-col gap-5">
         {categories.map((category) => (
-          <div key={category} className={`font-bold text-${category.toLowerCase()}`}>
+          <div key={category} className={`font-bold ${categoryColors[category]}`}>
             {category}
           </div>
         ))}
       </div>
       <div className="flex flex-col gap-5 mt-[-3px]">
         {categories
-        .map((category) => {
-            
-          const dataItem = userData.pieData.find((item) => item.id === category) || { value: 0 };
-          return (
-            <div key={category}>
-              <Bar id={category} value={dataItem.value} />
-            </div>
-          );
-        })}
+          .map((category) => {
+
+            const dataItem = userData.pieData.find((item) => item.id === category) || { value: 0 };
+            return (
+              <div key={category}>
+                <Bar id={category} value={dataItem.value} />
+              </div>
+            );
+          })}
       </div>
     </div>
   );

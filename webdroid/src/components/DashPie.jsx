@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ResponsivePie } from '@nivo/pie';
 import { Kosong } from "../assets"
-import Total from './Total';
+import { Total } from ".";
 
 const colors = ['#FF949F', '#53DFB5', '#59C5F7'];
 
