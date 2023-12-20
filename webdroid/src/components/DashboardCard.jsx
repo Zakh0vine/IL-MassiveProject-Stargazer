@@ -7,11 +7,6 @@ import Presentase from "./Presentase";
 import KetPie from "./KetPie";
 
 export default function Dash({ user }) {
-  const data = [
-    { id: "Full", value: 100 },
-    { id: "Mid", value: 80 },
-    { id: "Low", value: 20 },
-  ];
 
   const fullName = user.firstname + " " + user.lastname;
 
@@ -79,7 +74,7 @@ export default function Dash({ user }) {
               <div className="flex px-3">
                 {/* Pie */}
                 <div className=" w-[150px] h-[150px] pl-3">
-                  <DiaPie data={data} />
+                  <DiaPie />
                 </div>
                   <KetPie />
               </div>
