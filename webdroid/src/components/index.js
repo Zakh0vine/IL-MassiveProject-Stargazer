@@ -23,6 +23,11 @@ import CetakBtn from "./CetakBtn";
 import LapDash from "./LapDash.jsx";
 import LapTabIn from "./LapTabIn.jsx";
 import LapTabOut from "./LabTabOut.jsx";
+import Total from "./Total.jsx";
+import Time from "./Waktu.jsx";
+import Presentase from "./Presentase.jsx";
+import KetPie from "./KetPie.jsx";
+import Bar from './Bar.jsx';
 
 export {
   NavHome,
@@ -50,4 +55,9 @@ export {
   LapDash,
   LapTabIn,
   LapTabOut,
+  Total,
+  Time,
+  Presentase,
+  KetPie,
+  Bar,
 };

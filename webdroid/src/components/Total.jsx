@@ -7,7 +7,7 @@ export default function Total() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:4923/api/v1/pie', {
+                const response = await fetch('http://localhost:4923/api/v1/piej', {
                     method: 'GET',
                     headers: {
                         'Authorization': 'Bearer ' + '',
@@ -31,7 +31,7 @@ export default function Total() {
     }, []);
 
     return (
-        <div className='font-medium text-xl'>                {userData && userData.pieData && (
+        <div className='font-medium text-xl'> {userData && userData.pieData && (
             <p>{userData.pieData.reduce((total, d) => total + d.value, 0)}</p>
         )}</div>
     )

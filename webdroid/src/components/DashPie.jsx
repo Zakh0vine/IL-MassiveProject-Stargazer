@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ResponsivePie } from '@nivo/pie';
 import { Kosong } from "../assets"
+import { Total } from ".";
 
 const colors = ['#FF949F', '#53DFB5', '#59C5F7'];
 
@@ -44,6 +45,12 @@ const DiaPie = () => {
   </div>;
   }
 
+  const categoryColors = {
+    Low: '#FF949F',
+    Mid: '#59C5F7',
+    High: '#53DFB5',
+  };
+
   return (
     <div style={{ height: 350, width: 300, position: 'relative' }}>
       <ResponsivePie
@@ -71,7 +78,7 @@ const DiaPie = () => {
         arcLinkLabelsStraightLength={false}
         arcLinkLabel={false}
         arcLabel={false}
-        colors={colors}
+        colors={(d) => categoryColors[d.id]}
         radialLabelsSkipAngle={10}
         radialLabelsTextColor="#333333"
         radialLabelsLinkDiagonalLength={16}
@@ -95,7 +102,7 @@ const DiaPie = () => {
         }}
       >
         <br />
-        {userData.pieData.reduce((total, d) => total + d.value, 0)}
+        <Total />
       </div>
     </div>
   );

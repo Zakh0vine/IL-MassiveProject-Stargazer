@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function Presentase({ value }) {
+const Presentase = ({ value }) => {
     const [userData, setUserData] = useState(null);
     const [error, setError] = useState(null);
     const [persentaseObatMasuk, setPersentaseObatMasuk] = useState(0);
@@ -32,15 +32,20 @@ export default function Presentase({ value }) {
         fetchData();
     }, []);
 
-    useEffect(() => {
+    // Mgantuk typo niuolis
+    const calculatePercentage = (status) => {
         if (userData && userData.barData && userData.barData.length > 0) {
             const totalData = userData.barData.length;
-            const obatMasukCount = userData.barData.filter(item => item.status === 'Obat Masuk').length;
-            const obatKeluarCount = userData.barData.filter(item => item.status === 'Obat Keluar').length;
-
-            setPersentaseObatMasuk((obatMasukCount / totalData) * 100);
-            setPersentaseObatKeluar((obatKeluarCount / totalData) * 100);
+            const statusCount = userData.barData.filter(item => item.status === status).length;
+            return (statusCount / totalData) * 100;
         }
+
+        return 0;
+    };
+
+    useEffect(() => {
+        setPersentaseObatMasuk(calculatePercentage('Obat Masuk'));
+        setPersentaseObatKeluar(calculatePercentage('Obat Keluar'));
     }, [userData]);
 
     if (error) {
@@ -48,15 +53,16 @@ export default function Presentase({ value }) {
     }
 
     if (!userData || !userData.barData || userData.barData.length === 0) {
-        return <p>No data available</p>;
+        return <p className={`md:mr-2 w-[65px] border rounded-full px-1 self-end flex justify-center font-semibold ${value === 'masuk' ? 'bg-green-400' : 'bg-red-400'}`}>0%</p>;
     }
 
     return (
         <div>
-            {/* Gunakan nilai prop yang diteruskan */}
             <div className={`md:mr-2 w-[65px] border rounded-full px-1 self-end flex justify-center font-semibold ${value === 'masuk' ? 'bg-green-400' : 'bg-red-400'}`}>
                 {value === 'masuk' ? persentaseObatMasuk.toFixed(1) : persentaseObatKeluar.toFixed(1)}%
             </div>
         </div>
     );
 }
+
+export default Presentase;

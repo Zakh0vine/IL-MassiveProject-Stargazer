@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Box_Notif = () => {
   const [notifications, setNotifications] = useState([]);
+  const [visibleNotifications, setVisibleNotifications] = useState(10);
 
   useEffect(() => {
     fetch('http://localhost:4923/api/v1/notif', {
@@ -46,7 +47,7 @@ const Box_Notif = () => {
   );
 
   return (
-    <div className="flex items-start w-full  justify-center">
+    <div className="flex items-start w-full justify-center">
       <div className="lg:ml-4 lg:w-[750px]">
         <h1 className="relative text-3xl font-black mb-7">
           <Lingkaran />
@@ -55,7 +56,7 @@ const Box_Notif = () => {
         {notifications.length === 0 ? (
           <p className="text-2xl text-gray-900">Belum ada notifikasi</p>
         ) : (
-          notifications.map((e) => (
+          notifications.slice(0, visibleNotifications).map((e) => (
             <div key={e.name} className="mb-4">
               <div className={`p-3 rounded-sm outline outline-1 bg-white ${warnawarniNyoh(e.type)}`}>
                 <div className="flex items-center">
@@ -66,6 +67,14 @@ const Box_Notif = () => {
               </div>
             </div>
           ))
+        )}
+        {notifications.length > visibleNotifications && (
+          <button
+            className="text-blue-500 cursor-pointer"
+            onClick={() => setVisibleNotifications(visibleNotifications + 10)}
+          >
+            Tampilkan lebih banyak Lagi
+          </button>
         )}
       </div>
     </div>

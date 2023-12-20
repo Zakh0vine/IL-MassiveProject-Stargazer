@@ -37,7 +37,11 @@ const TestingBar = () => {
   }
 
   if (!userData || !userData.barData || userData.barData.length === 0) {
-    return <p>No data available</p>;
+    return <div className='font-bold flex justify-center items-center text-lg'>
+      <div className='py-9'>
+        Data Kosong
+      </div>
+    </div>
   }
 
 
