@@ -36,7 +36,7 @@ const LapDash = () => {
         let status;
         if (stockValue < 50) {
           status = "Low";
-        } else if (stockValue > 100) {
+        } else if (stockValue >= 100) {
           status = "Full";
         } else {
           status = "Mid";
@@ -81,7 +81,7 @@ const LapDash = () => {
           let status;
           if (stockValue < 50) {
             status = "Low";
-          } else if (stockValue > 100) {
+          } else if (stockValue >= 100) {
             status = "Full";
           } else {
             status = "Mid";

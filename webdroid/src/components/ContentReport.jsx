@@ -1,4 +1,4 @@
-import { DropDown, Button } from ".";
+import { DropDown, CetakBtn } from ".";
 import { report } from "../assets";
 
 const ContentReport = () => {
@@ -19,7 +19,7 @@ const ContentReport = () => {
       <img src={report} alt="Image Report" className="w-auto h-auto my-3" />
       <div className="w-full my-2 flex flex-1 items-center justify-center gap-5">
         <DropDown title="Filter" item={item} />
-        <Button link="#" text="Print Laporan" customClass="py-2 lg:px-14 sm:px-10 px-8 rounded-[10px]" />
+        <CetakBtn link="#" text="Print Laporan" customClass="py-2 lg:px-14 sm:px-10 px-8 rounded-[10px]" />
       </div>
     </div>
   );
