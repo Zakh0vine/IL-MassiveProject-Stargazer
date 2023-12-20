@@ -48,7 +48,7 @@ export default function Presentase({ value }) {
     }
 
     if (!userData || !userData.barData || userData.barData.length === 0) {
-        return <p>No data available</p>;
+        return <p className={`md:mr-2 w-[65px] border rounded-full px-1 self-end flex justify-center font-semibold ${value === 'masuk' ? 'bg-green-400' : 'bg-red-400'}`}>0%</p>;
     }
 
     return (

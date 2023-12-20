@@ -5,32 +5,32 @@ const olahanNotifikasi = (data) => {
 
   // Proses data obat masuk
   data.obatMasuk.forEach((obat) => {
-    const message = `Stok obat ${obat.name} pada ${obat.formatted_tgl_masuk} berhasil `;
+    const message = `Stok persediaan obat ${obat.name} pada ${obat.formatted_tgl_masuk} berhasil `;
     notifications.push({ message, type: "Masuk" });
   });
 
   // Proses data obat kadaluarsa
   data.obatKadaluarsa.forEach((obat) => {
-    const message = `Obat ${obat.name}  pada ${obat.formatted_tgl_exp} sudah `;
+    const message = `Persediaan obat ${obat.name} besok pada ${obat.formatted_tgl_exp} akan `;
     notifications.push({ message, type: "Expired" });
   });
 
   // Kadaluarsa h-1
   data.obatKadaluarsa2.forEach((obat) => {
-    const message = `Stok obat ${obat.name} 3 Hari lagi pada ${obat.formatted_tgl_exp} akan `;
+    const message = `Stok persediaan obat ${obat.name} 3 Hari lagi pada ${obat.formatted_tgl_exp} akan `;
     notifications.push({ message, type: "Expired" });
   });
 
   // Sedikit
   data.obatSedikit.forEach((obat) => {
-    const message = `Stok obat ${obat.name} Bisa di cek karena persedian `;
+    const message = `Stok persediaan obat ${obat.name} Bisa di cek karena persedian `;
     notifications.push({ message, type: "Sedikit" });
   });
 
   // Punya Keluar
   if (data.obatKeluar) {
     data.obatKeluar.forEach((obat) => {
-      const message = `Stok obat ${obat.name} pada ${obat.formatted_tgl_keluar} telah `;
+      const message = `Stok persediaan obat ${obat.name} pada ${obat.formatted_tgl_keluar} telah `;
       notifications.push({ message, type: "Keluar" });
     });
   }
