@@ -35,7 +35,7 @@ const Routing = () => {
     return (
         <Routes>
             <Route path="/">
-                <Route path="/" element={<Home setLogin={login} />} />
+                <Route path="/" element={<Home setLogin={login} getUser={user} />} />
 
                 {/* Public routes */}
                 <Route element={<PublicRoutes isLoggin={login} />}>
@@ -47,10 +47,10 @@ const Routing = () => {
                 <Route element={<AuthRoutes isLoggin={login} />}>
                     <Route path="profile" element={<Profile getUser={user} />} />
                     <Route path="dashboard" element={<DashContent getUser={user} />} />
-                    <Route path="report" element={<Report />} />
-                    <Route path="notifikasi" element={<Notifikasi />} />
+                    <Route path="report" element={<Report getUser={user} />} />
+                    <Route path="notifikasi" element={<Notifikasi getUser={user} />} />
                 </Route>
-                    <Route path="test" element={<TestPieTable />} />
+                <Route path="test" element={<TestPieTable />} />
             </Route>
         </Routes>
     );

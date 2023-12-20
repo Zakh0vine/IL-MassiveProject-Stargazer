@@ -1,5 +1,6 @@
 const query = require("../database");
-const bcryptjs = require("bcryptjs");
+const multer = require("multer");
+const path = require("path");
 
 async function getUser(req, res) {
     try {
@@ -14,7 +15,7 @@ async function getUser(req, res) {
 }
 
 async function updateUser(req, res) {
-    const { id, firstName, lastName, email, phoneNumber, password } = req.body;
+    const { id, firstName, lastName, email, phoneNumber } = req.body;
 
     if (
         firstName === undefined ||
@@ -24,17 +25,12 @@ async function updateUser(req, res) {
         email === undefined ||
         email === "" ||
         phoneNumber === undefined ||
-        isNaN(+phoneNumber) ||
-        password === undefined ||
-        password === ""
+        isNaN(+phoneNumber)
     )
         return res.status(400).json("Invalid data Update User!");
 
     try {
         // logic handling
-
-        const salt = await bcryptjs.genSalt(12);
-        const hash = await bcryptjs.hash(password, salt);
 
         await query(
             `
@@ -42,11 +38,10 @@ async function updateUser(req, res) {
             firstname=?,
             lastname=?,
             email=?,
-            phone_number=?,
-            password=?
+            phone_number=?
         WHERE id = ?;
     `,
-            [firstName, lastName, email, phoneNumber, hash, id]
+            [firstName, lastName, email, phoneNumber, id]
         );
 
         return res.status(200).json("Update User success!");
@@ -55,7 +50,45 @@ async function updateUser(req, res) {
     }
 }
 
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/avatar')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
+    },
+})
+
+const upload = multer({
+    storage: storage
+})
+
+async function updateAvatar(req, res) {
+    const image = req.file.filename;
+    const id = req.id;
+
+    try {
+        // logic handling
+
+        await query(
+            `
+        UPDATE users SET 
+            image=?
+        WHERE id = ?;
+    `,
+            [image, id]
+        );
+
+        return res.status(200).json("Profile Update Success!");
+    } catch (error) {
+        return res.status(400).json("Something went wrong!");
+    }
+}
+
+
 module.exports = {
     getUser,
-    updateUser
+    updateUser,
+    updateAvatar,
+    upload
 }
