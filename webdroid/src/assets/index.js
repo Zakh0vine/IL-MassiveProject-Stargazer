@@ -29,6 +29,9 @@ import Logout from "./ico/Logout.svg";
 import Notifications from "./ico/Notifications.svg";
 import Profile2 from "./ico/Profile.svg";
 
+// Video ShowCase
+import videoShowCase from "./vidio/video_showcase_medistok.mp4";
+
 // 
 import Kosong from "./ksng.png";
 
@@ -62,4 +65,5 @@ export {
   UC,
   searchicon,
   Kosong,
+  videoShowCase
 };

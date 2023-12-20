@@ -32,20 +32,19 @@ const Presentase = ({ value }) => {
         fetchData();
     }, []);
 
-    // Mgantuk typo niuolis
     const calculatePercentage = (status) => {
         if (userData && userData.barData && userData.barData.length > 0) {
-            const totalData = userData.barData.length;
-            const statusCount = userData.barData.filter(item => item.status === status).length;
-            return (statusCount / totalData) * 100;
+            const totalData = userData.barData.reduce((acc, item) => acc + item.value, 0);
+            const statusTotal = userData.barData.filter(item => item.status === status).reduce((acc, item) => acc + item.value, 0);
+            return (statusTotal / totalData) * 100;
         }
 
         return 0;
     };
 
     useEffect(() => {
-        setPersentaseObatMasuk(calculatePercentage('Obat Masuk'));
-        setPersentaseObatKeluar(calculatePercentage('Obat Keluar'));
+        setPersentaseObatMasuk(calculatePercentage('Masuk'));
+        setPersentaseObatKeluar(calculatePercentage('Keluar'));
     }, [userData]);
 
     if (error) {

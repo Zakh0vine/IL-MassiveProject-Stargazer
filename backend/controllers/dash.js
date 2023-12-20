@@ -78,7 +78,7 @@ async function TestBar(req, res) {
       const isEntryWithin3Days = entryDate.getTime() >= currentDate.getTime() - 3 * 24 * 60 * 60 * 1000;
       const isExitWithin3Days = expirationDate && expirationDate.getTime() >= currentDate.getTime() - 3 * 24 * 60 * 60 * 1000;
 
-      const status = isExitWithin3Days ? 'Obat Keluar' : isEntryWithin3Days ? 'Obat Masuk' : '';
+      const status = isExitWithin3Days ? 'Keluar' : isEntryWithin3Days ? 'Masuk' : '';
       return {
         ...item,
         status: status,

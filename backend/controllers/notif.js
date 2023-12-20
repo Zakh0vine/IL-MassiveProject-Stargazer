@@ -34,7 +34,7 @@ const olahanNotifikasi = (data) => {
       notifications.push({ message, type: "Keluar" });
     });
   }
-  
+
   return notifications;
 };
 
@@ -63,21 +63,31 @@ async function getNaon(req, res) {
 
     // Obat Sedikit
     const obatSedikit = await query(`
-    SELECT * FROM obat
-    WHERE stock <= 10 AND user_id = ?
-  `, [req.id]);
+      SELECT * FROM obat
+      WHERE stock <= 10 AND user_id = ?
+    `, [req.id]);
 
     // Obat Keluar
     const obatKeluar = await query(`
-    SELECT *, DATE_FORMAT(tgl_keluar, '%Y-%m-%d') AS formatted_tgl_keluar
-    FROM obat
-    WHERE tgl_keluar IS NOT NULL AND tgl_keluar <> '' AND user_id = ?
-  `, [req.id]);
+      SELECT *, DATE_FORMAT(tgl_keluar, '%Y-%m-%d') AS formatted_tgl_keluar
+      FROM obat
+      WHERE tgl_keluar IS NOT NULL AND tgl_keluar <> '' AND user_id = ?
+    `, [req.id]);
+
+    // Filter obat kadaluarsa yang belum keluar
+    const obatKadaluarsaBelumKeluar = obatKadaluarsa.filter((obat) => {
+      return !obatKeluar.some((keluar) => keluar.id === obat.id);
+    });
+
+    // Filter obat kadaluarsa H-3 yang belum keluar
+    const obatKadaluarsa2BelumKeluar = obatKadaluarsa2.filter((obat) => {
+      return !obatKeluar.some((keluar) => keluar.id === obat.id);
+    });
 
     const notifications = olahanNotifikasi({
       obatMasuk,
-      obatKadaluarsa,
-      obatKadaluarsa2,
+      obatKadaluarsa: obatKadaluarsaBelumKeluar,
+      obatKadaluarsa2: obatKadaluarsa2BelumKeluar,
       obatSedikit,
       obatKeluar,
     });

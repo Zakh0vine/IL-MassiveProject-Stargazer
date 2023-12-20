@@ -1,25 +1,11 @@
 import { logo, menu, close } from "../assets";
 import { navLinks } from "../constants";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import axios from "axios";
 
-const NavHome = ({ login }) => {
+const NavHome = ({ login, user }) => {
   const [toggle, settoggle] = useState(false);
-
-  // axios.defaults.withCredentials = true;
-
-  // useEffect(() => {
-  //   axios.get("http://localhost:4923/api/v1/home")
-  //     .then(res => {
-  //       if (res.data.Status === "Success") {
-  //         setlogin(true)
-  //       } else {
-  //         setlogin(false)
-  //       }
-  //     })
-  //     .then(err => console.log(err));
-  // }, [])
 
   function SideMenu() {
     if (!login) {
@@ -81,9 +67,19 @@ const NavHome = ({ login }) => {
           key={nav.id}
           className={`font-poppins font-semibold cursor-pointer text-black hover:text-[#5d6af8] text-[20px] ml-[65px]`}
         >
-          <Link to={index === 3 ? '/notifikasi' : index === 4 ? '/profile' : '/'}>
-            <img src={nav.title} alt={nav.id} className="w-[100%] h-[100%]" />
-          </Link>
+          {index === 3 ?
+            <Link to="/notifikasi">
+              <img src={nav.title} alt={nav.id} className="w-[100%] h-[100%]" />
+            </Link>
+            : index === 4 ?
+              <Link to="/profile">
+                {user.image === "" || user.image === null ?
+                  <img src={nav.title} alt={nav.id} className="w-[100%] h-[100%]" />
+                  :
+                  <img src={`http://localhost:4923/avatar/` + user.image} alt={nav.id} className="w-12 h-12 rounded-full ring-2 ring-[#426eb1]" />
+                }
+              </Link>
+              : null}
         </li>
       )
     }

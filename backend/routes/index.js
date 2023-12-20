@@ -14,5 +14,6 @@ app.use(apiUrl, auth);
 app.use(apiUrl, user);
 app.use(apiUrl, dash);
 app.use(apiUrl, obat);
+app.use(express.static('public'));
 
 module.exports = app;
