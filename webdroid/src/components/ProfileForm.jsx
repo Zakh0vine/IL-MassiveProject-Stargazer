@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { arrowleft, profile, edit } from "../assets";
+import { arrowleft, edit, profile } from "../assets";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
+import { Dialog } from 'primereact/dialog';
 
 const axiosHandler = async (url, data) => await axios.post(url, data);
 
@@ -26,12 +27,39 @@ const errorMessageDsplay = (text) => (
 const ProfileForm = ({ user }) => {
 
   const [input, setInput] = useState(true);
+  const [visible, setVisible] = useState(false);
+  const [file, setFile] = useState();
 
   const [firstName, setFirstName] = useState(user.firstname);
   const [lastName, setLastName] = useState(user.lastname);
   const [email, setEmail] = useState(user.email);
   const [phoneNumber, setPhoneNumber] = useState(user.phone_number);
-  const [password, setPassword] = useState(user.password);
+
+  //Foto Profile Handle
+  const handleAvatar = (e) => {
+    setFile(e.target.files[0]);
+  }
+  const handleUpload = () => {
+    const formData = new FormData();
+    formData.append('image', file);
+    try {
+      const { avatar } = axiosHandler('http://localhost:4923/api/v1/user/avatar', formData);
+      Swal.fire({
+        icon: "success",
+        title: "Profile Berhasil Diubah",
+        text: avatar,
+      });
+      setVisible(false);
+      navigate("/profile", { state: { key: Math.random() } })
+    } catch (error) {
+      console.log("Data Error")
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.response.data,
+      })
+    }
+  }
 
   const {
     register,
@@ -83,12 +111,22 @@ const ProfileForm = ({ user }) => {
           </a>
           <h3 className="font-poppins font-bold text-[30px] md:pr-[250px] py-5">Profile</h3>
         </div>
-        <div className="relative  w-20 h-20">
-          <img className="w-full h-full" src={profile} alt="photoprofile" />
-          <div className="absolute bottom-0 right-0">
-            <a href="/blank">
-              <img src={edit} alt="edit" className=" h-7 w-7" />
-            </a>
+        <div className="relative w-20 h-20">
+          {user.image === "" || user.image === null ?
+            <img src={profile} alt="profile" className="w-[100%] h-[100%]" />
+            :
+            <img className="w-full h-full rounded-full ring-4 ring-[#426eb1]" src={`http://localhost:4923/avatar/` + user.image} alt="photoprofile" />
+          }
+          <div className="relative left-[60px] bottom-4">
+            <img src={edit} alt="edit" className=" h-7 w-7 cursor-pointer" onClick={() => setVisible(true)} />
+            <Dialog
+              header="Update Profile"
+              visible={visible}
+              onHide={() => setVisible(false)}
+              className="bg-slate-100 shadow-2xl lg:w-[40vw] w-[60vw] p-9 rounded-xl">
+              <input type="file" className="mt-9" onChange={handleAvatar} />
+              <button className="mt-5 p-2 bg-slate-400 rounded-xl" onClick={handleUpload}>Upload Image</button>
+            </Dialog>
           </div>
         </div>
       </div>
@@ -150,20 +188,6 @@ const ProfileForm = ({ user }) => {
                 className="border-2 border-[#b8b8b8] bg-white rounded-xl text-black py-[10px] px-4 focus:outline-none focus:border-[#6499E9] text-[15px] font-medium"
                 disabled={input}
                 {...register("phoneNumber", {
-                  required: { value: true, message: "Input field required!" },
-                })}
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className=" text-gray-600 text-sm font-medium">Kata sandi</label>
-              <input
-                type="password"
-                name="password"
-                value={password}
-                onInput={(e) => setPassword(e.target.value)}
-                className="border-2 border-[#b8b8b8] bg-white rounded-xl text-black py-[10px] px-4 focus:outline-none focus:border-[#6499E9] text-[15px] font-medium"
-                disabled={input}
-                {...register("password", {
                   required: { value: true, message: "Input field required!" },
                 })}
               />
