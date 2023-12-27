@@ -5,7 +5,7 @@ import { ContentRegis } from '../components';
 
 const Register = () => {
     return (
-        <div className="w-full  overflow-hidden bg-white">
+        <div className="w-full overflow-hidden bg-white">
 
             <div className="w-full md:px-[120px] px-7 bg-white fixed z-[10]">
                 <nav className="w-full flex py-3 items-center navbar flex-1 justify-between">

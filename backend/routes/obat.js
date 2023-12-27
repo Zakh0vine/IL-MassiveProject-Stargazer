@@ -1,11 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const { getAllObat, addObat } = require("../controllers/obat");
+const { verifyUser } = require("../controllers/auth");
 
-router.get("/obat", getAllObat);
+router.get("/obat", verifyUser, getAllObat);
 router.post("/obat", addObat);
-router.get("/obat", (req, res) => {
-  res.send("Selamat datang di endpoint obat!");
-});
 
 module.exports = router;

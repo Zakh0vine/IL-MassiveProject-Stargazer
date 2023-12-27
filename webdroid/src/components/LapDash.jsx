@@ -10,8 +10,8 @@ const LapDash = () => {
 
   const columns = [
     columnHelper.accessor("id", {
-      cell: (info) => <span>{info.getValue()}</span>,
-      header: "ID",
+      cell: (info) => <span>{info.row.index + 1}</span>,
+      header: "No",
     }),
     columnHelper.accessor("name", {
       cell: (info) => <span>{info.getValue()}</span>,
@@ -19,11 +19,11 @@ const LapDash = () => {
     }),
     columnHelper.accessor("brand", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Brand/Merek",
+      header: "Brand | Merek",
     }),
     columnHelper.accessor("stock", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Stok",
+      header: "Stok | Box",
     }),
     columnHelper.accessor("catatan", {
       cell: (info) => <span>{info.getValue()}</span>,
@@ -34,9 +34,9 @@ const LapDash = () => {
         const stockValue = info.row.original.stock;
 
         let status;
-        if (stockValue < 10) {
+        if (stockValue < 50) {
           status = "Low";
-        } else if (stockValue > 50) {
+        } else if (stockValue >= 100) {
           status = "Full";
         } else {
           status = "Mid";
@@ -76,17 +76,17 @@ const LapDash = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:4923/api/v1/obat");
-        const newData = response.data.map((item) => {
+        const newData = response.data.map((item, index) => {
           const stockValue = Number(item.stock);
           let status;
-          if (stockValue < 10) {
+          if (stockValue < 50) {
             status = "Low";
-          } else if (stockValue > 50) {
+          } else if (stockValue >= 100) {
             status = "Full";
           } else {
             status = "Mid";
           }
-          return { ...item, status };
+          return { ...item, status, id: index + 1 };
         });
         setData(newData);
       } catch (error) {
@@ -170,7 +170,7 @@ const LapDash = () => {
               ))}
             {table.getRowModel().rows.length === 0 && (
               <tr className="text-center h-32">
-                <td colSpan={12}>Emang ada ya?</td>
+                <td colSpan={12}>Oops, data yang kamu cari belum ada</td>
               </tr>
             )}
           </tbody>

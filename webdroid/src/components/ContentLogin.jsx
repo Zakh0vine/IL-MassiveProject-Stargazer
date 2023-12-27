@@ -49,7 +49,7 @@ const ContentLogin = () => {
                 text: data,
             });
             reset();
-            navigate("/")
+            navigate("/", { state: { key: Math.random() } })
         } catch (error) {
             console.log("Data Error")
             Swal.fire({

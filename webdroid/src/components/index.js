@@ -1,6 +1,5 @@
 import NavHome from "./NavHome";
 import Hero from "./Hero";
-import Button from "./Button";
 import Download from "./Download";
 import Demo from "./Demo";
 import InputText from "./InputText";
@@ -19,15 +18,19 @@ import Dash from "./DashboardCard.jsx";
 import DiaPie from "./DashPie";
 import NivoBarChartCard from "./HorizontalBar";
 import DebouncedInput from "./DebouncedInput.jsx";
-import CetakBtn from "./CetakBtn";
 import LapDash from "./LapDash.jsx";
 import LapTabIn from "./LapTabIn.jsx";
 import LapTabOut from "./LabTabOut.jsx";
+import CetakBtn from "./CetakBtn";
+import Total from "./Total.jsx";
+import Time from "./Waktu.jsx";
+import Presentase from "./Presentase.jsx";
+import KetPie from "./KetPie.jsx";
+import Bar from "./Bar.jsx";
 
 export {
   NavHome,
   Hero,
-  Button,
   Download,
   Demo,
   InputText,
@@ -50,4 +53,9 @@ export {
   LapDash,
   LapTabIn,
   LapTabOut,
+  Total,
+  Time,
+  Presentase,
+  KetPie,
+  Bar,
 };

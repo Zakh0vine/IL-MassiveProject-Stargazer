@@ -1,11 +1,11 @@
 import { Hero, Demo, Download, About, Card, Footer, NavHome } from "../components";
 
-const Home = () => (
+const Home = ({ setLogin, getUser }) => (
   <div className="w-full overflow-hidden bg-white">
 
     <div className="w-full md:px-[120px] px-7 shadow-lg shadow-slate-300 bg-white fixed z-[10]">
       <div className="w-full">
-        <NavHome />
+        <NavHome login={setLogin} user={getUser} />
       </div>
     </div>
 

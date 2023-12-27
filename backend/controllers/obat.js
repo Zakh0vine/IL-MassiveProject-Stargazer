@@ -1,9 +1,8 @@
-const db = require("../database");
+const query = require("../database");
 
 const getAllObat = async (req, res) => {
   try {
-    const query = "SELECT * FROM obat";
-    const result = await db(query);
+    const result = await query("SELECT * FROM obat WHERE user_id = ?", [req.id]);
 
     res.status(200).json(result);
   } catch (error) {
@@ -13,16 +12,14 @@ const getAllObat = async (req, res) => {
 };
 
 const addObat = async (req, res) => {
-  const { name, brand, stock, catatan } = req.body;
+  const { user_id, name, brand, stock, catatan, tgl_masuk, tgl_keluar, tgl_exp } = req.body;
 
-  if (!name || !brand || !stock || !catatan) {
-    return res.status(400).json({ error: "Semua field harus diisi" });
-  }
+  if (name === undefined || name === "" || brand === undefined || brand === "" || stock === undefined || isNaN(+stock) || catatan === undefined || catatan === "") return res.status(400).json("yo ndak tau");
 
   try {
-    const query = "INSERT INTO obat (name, brand, stock, catatan) VALUES (?, ?, ?, ?)";
-    const values = [name, brand, stock, catatan];
-    await db(query, values);
+    const queryStr = "INSERT INTO obat (user_id, name, brand, stock, catatan, tgl_masuk, tgl_keluar, tgl_exp) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    const values = [user_id, name, brand, stock, catatan, tgl_masuk, tgl_keluar, tgl_exp];
+    await query(queryStr, values);
 
     res.status(201).json({ message: "Obat berhasil ditambahkan" });
   } catch (error) {
