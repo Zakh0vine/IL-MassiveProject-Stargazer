@@ -1,30 +1,24 @@
-import React from 'react'
-import Sidebar from '../components/Sidebar_test'
-import NavHome from '../components/NavHome'
-import Box_Notif from '../components/Box_Notif'
+import { NavProfile, Sidebar, Box_Notif, Footer } from "../components";
 
 export default function Notifikasi() {
-    return (
-        <div className='flex h-[850px]'>
-            <div className="w-full md:px-[120px] px-7 shadow-lg shadow-slate-300 bg-white fixed z-[10]">
-                <div className="w-full">
-                    <NavHome />
-                </div>
-            </div>
-            <div className="flex">
-                {/*  */}
-                <div className="md:px-[100px] px-7 mt-[150px]">
-                    <div className="w-full">
-                        <Sidebar />
-                    </div>
-                </div>
-                {/*  */}
-                <div className="mt-[150px] mr-8 ">
-                    <div className=''>
-                        <Box_Notif />
-                    </div>
-                </div>
-            </div>
-        </div >
-    )
+  return (
+    <div className="w-full overflow-hidden bg-white">
+      <div className="w-full lg:px-[120px] px-10 shadow-lg shadow-slate-200 bg-white fixed z-[10]">
+        <NavProfile />
+      </div>
+
+      <div className="flex flex-1 lg:justify-start justify-center items-start w-full min-h-screen h-auto my-[100px] lg:px-[120px] px-10 py-10 bg-gradient-to-b from-white from-5% via-blue-500/[0.4] to-white to-95%">
+        <div className="lg:mx-5 mx-0 self-start">
+          <Sidebar content={3} />
+        </div>
+        <div className="lg:mx-0  mt-8 h-auto">
+          <Box_Notif />
+        </div>
+      </div>
+      {/* Footer */}
+      <div className="w-full h-auto">
+        <Footer />
+      </div>
+    </div>
+  );
 }

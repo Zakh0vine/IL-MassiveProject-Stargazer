@@ -1,30 +1,29 @@
-import React from 'react';
+import { Link } from 'react-router-dom'
 import { sideNav } from '../constants';
 
-// Chandra Gabut 
-const Sidebar = () => {
+const Sidebar = ({ content }) => {
     return (
-        <nav className="flex justify-center">
-            <div className='mx-4 my-35'>
+        <nav className="flex justify-center h-[450px]">
+            <div className=' lg:flex hidden '>
                 <div className="flex bg-white drop-shadow-lg rounded-lg p-3">
-                    <ul className="list-none py-7 pl-5">
+                    <ul className="list-none py-7 px-5">
                         {sideNav.slice(0, 5).map((nav, index) => (
                             <li
                                 key={nav.name}
-                                className={`flex items-center justify-space font-medium cursor-pointer text-black hover:text-warnaUnggu text-[20px] mr-[65px] mb-10 ${index === 3 ? 'text-warnaUnggu' : ''}`}
+                                className={`flex items-center justify-space font-medium cursor-pointer text-black hover:text-warnaUnggu text-[20px] mr-[65px] mb-10 ${index === sideNav.length - 1 ? 'mb-6' : 'mb-0'} ${index === content ? 'text-warnaUnggu' : ''}`}
                             >
-                                <div className='flex items-center mb-3'>
+                                <div className='flex items-center mb-2'>
                                     <img src={nav.img} alt={nav.name} className="w-7 h-7 mr-7" />
-                                    <a href={`#${nav.name}`}>
+                                    <Link to={index === sideNav.length - 1 ? '/' : `/${nav.name}`}>
                                         {nav.title}
-                                    </a>
+                                    </Link>
                                 </div>
                             </li>
                         ))}
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav >
 
     );
 };

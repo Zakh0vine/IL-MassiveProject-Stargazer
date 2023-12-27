@@ -1,0 +1,22 @@
+[
+  { "id": 1, "nama_obat": "Obat kumur antiseptik", "brand": "Betadin", "tgl_masuk": "2023-06-05", "tgl_keluar": "2023-07-01", "tgl_exp": "2024-06-05", "stock": "5", "catatan": "-" },
+  { "id": 2, "nama_obat": "Obat saluran cerna", "brand": "Metoklopramid (Antimual)", "tgl_masuk": "2023-06-06", "tgl_keluar": "2023-06-30", "tgl_exp": "2024-06-07", "stock": "20", "catatan": "Resep Dokter" },
+  { "id": 3, "nama_obat": "Obat saluran cerna", "brand": "Bisakodil Suppo (Laksan)", "tgl_masuk": "2023-08-10", "tgl_keluar": "2023-12-05", "tgl_exp": "2024-08-09", "stock": "100", "catatan": "-" },
+  { "id": 4, "nama_obat": "Obat mulut dan tenggorokan", "brand": "Triamcinolone acetonide", "tgl_masuk": "2023-02-05", "tgl_keluar": "2023-02-25", "tgl_exp": "2024-01-05", "stock": "40", "catatan": "-" },
+  { "id": 5, "nama_obat": "Obat mulut dan tenggorokan", "brand": "Hexetidin", "tgl_masuk": "2023-01-01", "tgl_keluar": "2023-01-05", "tgl_exp": "2024-01-01", "stock": "60", "catatan": "-" },
+  { "id": 6, "nama_obat": "Obat saluran napas", "brand": "Asetilsistein", "tgl_masuk": "2023-04-21", "tgl_keluar": "2023-05-15", "tgl_exp": "2024-02-05", "stock": "200", "catatan": "Simpan Tempat Aman" },
+  { "id": 7, "nama_obat": "Obat saluran napas", "brand": "Salbutamol", "tgl_masuk": "2023-11-11", "tgl_keluar": "2023-11-12", "tgl_exp": "2024-11-11", "stock": "49", "catatan": "-" },
+  { "id": 8, "nama_obat": "Antiparasit", "brand": "Mebendazol", "tgl_masuk": "2023-10-25", "tgl_keluar": "2023-11-02", "tgl_exp": "2024-10-25", "stock": "10", "catatan": "-" },
+  { "id": 9, "nama_obat": "Obat kulit topikal", "brand": "Gentamisin", "tgl_masuk": "2023-04-11", "tgl_keluar": "2023-04-12", "tgl_exp": "2024-04-20", "stock": "21", "catatan": "-" },
+  { "id": 10, "nama_obat": "Obat kulit topikal", "brand": "Nistatin", "tgl_masuk": "2023-07-09", "tgl_keluar": "2023-07-10", "tgl_exp": "2024-07-05", "stock": "67", "catatan": "-" },
+  { "id": 11, "nama_obat": "Organ sensorik", "brand": "Kloramfenikol", "tgl_masuk": "2023-03-04", "tgl_keluar": "2023-03-05", "tgl_exp": "2024-03-11", "stock": "40", "catatan": "Resep Dokter" },
+  { "id": 12, "nama_obat": "Sistem muskuloskeletal", "brand": "Alopurinol", "tgl_masuk": "2023-12-25", "tgl_keluar": "2023-12-25", "tgl_exp": "2024-12-30", "stock": "89", "catatan": "-" },
+  { "id": 13, "nama_obat": "Saluran pencernaan", "brand": "Ranitidin", "tgl_masuk": "2023-08-08", "tgl_keluar": "2023-08-10", "tgl_exp": "2024-08-10", "stock": "37", "catatan": "-" },
+  { "id": 14, "nama_obat": "Antiasma", "brand": "Orsiprenalin", "tgl_masuk": "2022-12-05", "tgl_keluar": "2022-12-07", "tgl_exp": "2023-12-05", "stock": "5", "catatan": "-" },
+  { "id": 15, "nama_obat": "Antihistamin", "brand": "Cetirizin", "tgl_masuk": "2023-01-02", "tgl_keluar": "2023-01-03", "tgl_exp": "2024-02-05", "stock": "24", "catatan": "-" },
+  { "id": 16, "nama_obat": "Antihistamin", "brand": "Siproheptadin", "tgl_masuk": "2023-08-10", "tgl_keluar": "2023-09-01", "tgl_exp": "2024-11-01", "stock": "79", "catatan": "-" },
+  { "id": 17, "nama_obat": "Sistem muskuloskeletal", "brand": "Diklofenak natrium", "tgl_masuk": "2023-02-25", "tgl_keluar": "2023-05-05", "tgl_exp": "2024-02-05", "stock": "5", "catatan": "-" },
+  { "id": 18, "nama_obat": "Sistem muskuloskeletal", "brand": "Piroksikam", "tgl_masuk": "2023-03-15", "tgl_keluar": "2023-04-05", "tgl_exp": "2024-03-05", "stock": "5", "catatan": "-" },
+  { "id": 19, "nama_obat": "Kardiovaskular", "brand": "Angioten", "tgl_masuk": "2023-04-08", "tgl_keluar": "2023-04-10", "tgl_exp": "2024-04-05", "stock": "50", "catatan": "-" },
+  { "id": 20, "nama_obat": "Kardiovaskular", "brand": "Cardismo", "tgl_masuk": "2023-05-15", "tgl_keluar": "2023-06-10", "tgl_exp": "2024-15-05", "stock": "100", "catatan": "-" }
+]
