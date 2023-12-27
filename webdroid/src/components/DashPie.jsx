@@ -1,43 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import { ResponsivePie } from '@nivo/pie';
-import fetchData from '../../../backend/api/apiPie';
+import { Kosong } from "../assets"
+import { Total } from ".";
 
-const colors = ['#FF949F', '#59C5F7', '#53DFB5'];
+const colors = ['#FF949F', '#53DFB5', '#59C5F7'];
 
 const DiaPie = () => {
-  const [data, setData] = useState([])
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchDataProces = async() => {
+    const fetchData = async () => {
       try {
-        const api = await fetchData()
-        const grouping = api.data.reduce((nama, item) => {
-          const label = item.my_size
-          if (!nama[label]) {
-            nama[label] = { id: label, label, value: 0 };
-          }
-          nama[label].value += item.jumlah;
-          return nama;
-        }, {})
+        const response = await fetch('http://localhost:4923/api/v1/pie', {
+          method: 'GET',
+          headers: {
+            'Authorization': 'Bearer ' + '',
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        });
 
-        const formatData = Object.values(grouping)
-        setData(formatData);
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        const data = await response.json();
+        setUserData(data);
       } catch (error) {
-        console.log(error);
+        setError(error.message);
       }
     };
 
-    fetchDataProces();
+    fetchData();
   }, []);
 
-  if (data.length === 0) {
-    return <div>a</div> ;
+  if (error) {
+    return <p>{error}</p>;
   }
-  
+
+  if (!userData || !userData.pieData) {
+    return <div>
+    <img src={Kosong} alt="Deskripsi Gambar" />
+  </div>;
+  }
+
+  const categoryColors = {
+    Low: '#FF949F',
+    Mid: '#59C5F7',
+    High: '#53DFB5',
+  };
+
   return (
     <div style={{ height: 350, width: 300, position: 'relative' }}>
       <ResponsivePie
-        data={data}
+        data={userData.pieData}
         margin={{ right: 170, bottom: 210, top: 20 }}
         sortByValue={true}
         innerRadius={0.5}
@@ -49,19 +66,19 @@ const DiaPie = () => {
         }}
         enableArcLabels={false}
         arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor={"#333333"}
+        arcLinkLabelsTextColor={'#333333'}
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{
-          from: "color",
-          modifiers: [["darker", 2]]
+          from: 'color',
+          modifiers: [['darker', 2]],
         }}
         arcLinkLabelsDiagonalLength={false}
         arcLinkLabelsStraightLength={false}
         arcLinkLabel={false}
         arcLabel={false}
-        colors={colors}
+        colors={(d) => categoryColors[d.id]}
         radialLabelsSkipAngle={10}
         radialLabelsTextColor="#333333"
         radialLabelsLinkDiagonalLength={16}
@@ -70,7 +87,7 @@ const DiaPie = () => {
         radialLabelsLinkColor={{ from: 'color' }}
         sliceLabelsSkipAngle={10}
         sliceLabelsTextColor="#333333"
-        radialLabelsText={(d) => `${d.id}\n${d.value}`} // njir apa ini 
+        radialLabelsText={(d) => `${d.id}\n${d.my_size} ${d.value}`} // njir apa ini 
       />
       <div
         style={{
@@ -81,16 +98,15 @@ const DiaPie = () => {
           textAlign: 'center',
           fontSize: '1.5rem',
           fontWeight: 'bold',
-          color: 'gray'
+          color: 'gray',
         }}
       >
         <br />
-        {data.reduce((total, d) => total + d.value, 0)}
+        <Total />
       </div>
     </div>
-  )
+  );
 };
-
 
 
 export default DiaPie;

@@ -1,7 +1,8 @@
 import { createColumnHelper, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable } from "@tanstack/react-table";
-import dummydash from "../data/dummydash.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DebouncedInput from "./DebouncedInput";
+import { format } from "date-fns";
+import axios from "axios";
 
 const LapTabOut = () => {
   const columnHelper = createColumnHelper();
@@ -9,27 +10,27 @@ const LapTabOut = () => {
   const columns = [
     columnHelper.accessor("id", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "ID",
+      header: "No",
     }),
-    columnHelper.accessor("nama_obat", {
+    columnHelper.accessor("name", {
       cell: (info) => <span>{info.getValue()}</span>,
       header: "Nama Obat",
     }),
     columnHelper.accessor("brand", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Brand/Merek",
+      header: "Brand | Merek",
     }),
     columnHelper.accessor("tgl_keluar", {
-      cell: (info) => <span>{new Date(info.getValue()).toLocaleDateString()}</span>,
+      cell: (info) => <span>{format(new Date(info.getValue()), "yyyy-MM-dd")}</span>,
       header: "Tanggal Keluar",
     }),
     columnHelper.accessor("tgl_exp", {
-      cell: (info) => <span>{new Date(info.getValue()).toLocaleDateString()}</span>,
+      cell: (info) => <span>{format(new Date(info.getValue()), "yyyy-MM-dd")}</span>,
       header: "Tanggal Kadaluarsa",
     }),
     columnHelper.accessor("stock", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Stok",
+      header: "Stok | Box",
     }),
     columnHelper.accessor("catatan", {
       cell: (info) => <span>{info.getValue()}</span>,
@@ -37,14 +38,7 @@ const LapTabOut = () => {
     }),
   ];
 
-  const [data, setData] = useState(() => {
-    const newData = dummydash.map((item) => {
-      return { ...item };
-    });
-
-    return newData;
-  });
-
+  const [data, setData] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
   const table = useReactTable({
@@ -58,12 +52,28 @@ const LapTabOut = () => {
     getPaginationRowModel: getPaginationRowModel(),
   });
 
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:4923/api/v1/obat");
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError("Terjadi kesalahan saat mengambil data dari server.");
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="p-2 max-w-5xl mx-auto text-black border shadow-lg rounded-lg mb-16 overflow-auto">
       <div className=" flex items-center mb-2 ">
         <span className="font-semibold w-[120px] ">Obat Keluar</span>
         <div className="flex items-center gap-1 w-full justify-end">
-          <DebouncedInput value={globalFilter ?? ""} onChange={(value) => setGlobalFilter(String(value))} className="p-2 bg-birugrad/60 outline-none w-1/5 focus:w-1/3 duration-300 rounded-lg shadow-lg" placeholder="Cari semua kolom" />
+          <DebouncedInput value={globalFilter ?? ""} onChange={(value) => setGlobalFilter(String(value))} className="p-2 bg-birugrad/60 outline-none w-1/3 focus:w-1/2 duration-300 rounded-lg shadow-lg" placeholder="Cari semua kolom" />
         </div>
       </div>
       <table className="border w-full text-left">
@@ -95,7 +105,7 @@ const LapTabOut = () => {
           ))}
           {table.getRowModel().rows.length === 0 && (
             <tr className="text-center h-32">
-              <td colSpan={12}>Emang ada ya?</td>
+              <td colSpan={12}>Oops, data yang kamu cari belum ada</td>
             </tr>
           )}
         </tbody>
