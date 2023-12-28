@@ -18,9 +18,10 @@ Output Token pada Cookies
 
 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTcwMzY4NDk5MywiZXhwIjoxNzAzNzcxMzkzfQ.gXU69ATeaRT7AbltekdvNSyW991LZOv7GkEkop_Lb9I"
 
-Kemudian kirimkan token yang ada pada api fifo untuk mendapatkan data obat berdasarkan fifo atau fefo, misalkan fifo.
+Kemudian kirimkan token yang ada pada api fifofefo untuk mendapatkan data obat berdasarkan fifo atau fefo, misalkan fifo.
 
 GET "http://localhost:4923/api/v1/fifofefo?orderType=fifo"
+
 Input:
 
 {
